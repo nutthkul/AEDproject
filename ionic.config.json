@@ -1,0 +1,7 @@
+{
+  "name": "FindingAED",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
