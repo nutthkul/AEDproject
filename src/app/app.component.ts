@@ -46,6 +46,11 @@ export class AppComponent {
             url: '/list',
             icon: 'list'
         },
+        {
+            title: 'ลงทะเบียนเครื่อง AED',
+            url: '/add-aed',
+            icon: ''
+        },
     ];
 
     constructor(
