@@ -1,5 +1,98 @@
-<ion-content>
-หน้า Login
-  <a href="/home">ไปหน้า home แบบ href</a>
-  <ion-button (click)="goToHome()">ไปหน้า home แบบ function</ion-button>
+<!--<ion-header>-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>-->
+<!--      Login-->
+<!--    </ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+
+<!--<ion-content background-color="blue" padding>-->
+<!--&lt;!&ndash;    <div style="background-color:brown;">&ndash;&gt;-->
+<!--  <ion-item>-->
+<!--      <ion-input placeholder="username" type="email"></ion-input>-->
+<!--  </ion-item>-->
+<!--    <ion-item>-->
+<!--        <ion-input placeholder="password" type="password"></ion-input>-->
+<!--    </ion-item>-->
+<!--&lt;!&ndash;    <ion-item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-label>Gender</ion-label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-select [(ngModel)]="gender">&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-select-option value="f">Female</ion-select-option>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-select-option value="m">Male</ion-select-option>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-select>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ion-item>&ndash;&gt;-->
+<!--    <br/>-->
+<!--        <ion-label style="color: #4c8dff">register here</ion-label>-->
+<!--        <ion-button expand="block" (click)="clickBtn()">Login</ion-button>-->
+<!--    <ion-button color="danger" expand="block" -->
+<!--    class="mycss">-->
+<!--      back</ion-button>-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    </ion-content>-->
+
+<link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+
+
+<ion-content class="mycss1">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="center">
+        <ion-img style="width: 100px; height: 100px;" src="../../assets/icon/AED_LOGO.png"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="titlecss">
+        <ion-label>FINDING AED</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center" style="font-size: 20px">
+      <ion-col>
+        <ion-label class="labelcss">ค้นหาเครื่องกระตุ้นหัวใจ</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="logincardcss">
+    <!--    <div style="background-color:brown;">-->
+    <ion-col class="loginlabel center">
+      <ion-label>Login</ion-label>
+    </ion-col>
+    <ion-item>
+      <ion-label position="floating" class="inputcss">หมายเลขโทรศัพท์</ion-label>
+      <ion-input placeholder="เบอร์โทรศัพท์" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" class="inputcss">รหัสผ่าน</ion-label>
+      <ion-input placeholder="******" type="password"></ion-input>
+    </ion-item>
+    <!--    <ion-item>-->
+    <!--        <ion-label>Gender</ion-label>-->
+    <!--        <ion-select [(ngModel)]="gender">-->
+    <!--          <ion-select-option value="f">Female</ion-select-option>-->
+    <!--          <ion-select-option value="m">Male</ion-select-option>-->
+    <!--        </ion-select>-->
+    <!--    </ion-item>-->
+    <ion-col>
+      <a href="#" style="color: #989aa2">ลืมรหัสผ่าน?</a>
+    </ion-col>
+    <br><br/>
+    <ion-img style="width: 200px; height: 30px;"
+             src="https://scontent.fbkk4-1.fna.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_eui2=AeFsSb_wDZ5bFATUSsecnbMp8AeJBoRAAObHetiAyLOYvY7YVctMpxlMn02jZ_3Rz9ISjyCcfXLs_lOpEryOfFySOMFsRMnn1zTqLEexFB2Uhw&_nc_ohc=2UZ9-_foWxQAQnhCa9SWxMWzjw8LUBwlIA7571Evpsq8vS8-Ltv1gQ9TA&_nc_ht=scontent.fbkk4-1.fna&oh=f9e4a9c2e7214fb573adaf46fe7612b8&oe=5E66C4EA"></ion-img>
+    <ion-col class="center">
+      <ion-button (click)="clickBtn()" class="loginbuttoncss" expand="round" color="brown">เข้าสู่ระบบ
+      </ion-button>
+    </ion-col>
+    <a href="#" style="color:brown" class="center">ลงทะเบียนผู้ใช้ใหม่!</a>
+    <br><br/>
+  </ion-card>
 </ion-content>
+
+
+
+
+<!--<ion-content>-->
+<!--หน้า Login-->
+<!--  <a href="/home">ไปหน้า home แบบ href</a>-->
+<!--  <ion-button (click)="goToHome()">ไปหน้า home แบบ function</ion-button>-->
+<!--</ion-content>-->

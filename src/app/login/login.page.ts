@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController} from '@ionic/angular';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  constructor(public navCtrl: NavController) { }
+  constructor() {}
+  clickBtn() {
+    let jsonObj = {
+      name: 'Nutthkul',
+      lastname: 'kulkritt',
+      age: 22
+    };
+    console.log(jsonObj.name + ' ' + jsonObj.lastname +
+        ' ' + jsonObj.age);
 
-  ngOnInit() {
   }
-
-  goToHome() {
-    this.navCtrl.navigateRoot('/home').then();
-  }
-
 }

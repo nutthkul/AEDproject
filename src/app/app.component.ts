@@ -23,7 +23,7 @@ export class AppComponent {
         },
         {
             title: 'ลงทะเบียนผู้ใช้งาน ใหม่!!',
-            url: '/register',
+            url: '/member',
             icon: 'person-add'
         },
         {
