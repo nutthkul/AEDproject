@@ -1,0 +1,75 @@
+<link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+<ion-header>
+  <ion-toolbar class="mycss1">
+    <ion-col>
+      <ion-label class="whitetext" (click)="goToHome()"> < กลับ</ion-label><ion-label class="whitetext center"> ลงทะเบียนเครื่อง AED</ion-label>
+    </ion-col>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="mycss1">
+  <ion-grid>
+    <ion-card class="cardcss">
+      <ion-col class="center">
+        <ion-avatar style="width: 100px; height: 100px;">
+          <img src="../../assets/icon/images.png"/>
+        </ion-avatar>
+      </ion-col>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">รายละเอียดสะถานที่*</ion-label>
+        <ion-item-divider>
+          <ion-input placeholder="โปรดระบุ" type="name"></ion-input>
+        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">จุดสังเกตเพิ่มเติม*</ion-label>
+        <ion-item-divider>
+          <ion-input placeholder="โปรดระบุ" type="email"></ion-input>
+        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
+        <ion-item-divider>
+          <ion-input placeholder="โปรดระบุ" type="password"></ion-input>
+        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">รหัสเครื่อง*</ion-label>
+        <ion-item-divider>
+          <ion-input placeholder="โปรดระบุ" type="password"></ion-input>
+        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
+        <ion-item-divider>
+          <ion-input placeholder="โปรดระบุ" type="telophonenumber"></ion-input>
+        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่อง*</ion-label>
+        <ion-item-divider>
+          <ion-input placeholder="โปรดระบุ" type="telophonenumber"></ion-input>
+        </ion-item-divider>บ
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-img style="width: 300px; height: 150px;" src="../../assets/icon/map.jpg"><</ion-img>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="savecss" expand="round" color="brown">บันทึกพิกัด
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <br><br/>
+      <ion-col class="center">
+        <ion-button class="savecss" expand="round" color="brown">บันทึก
+        </ion-button>
+      </ion-col>
+    </ion-card>
+  </ion-grid>
+</ion-content>
