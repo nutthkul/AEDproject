@@ -14,6 +14,9 @@ export class MemberPage implements OnInit {
   goToHome() {
     this.navCtrl.navigateRoot('/home').then();
   }
+  goToSuccess() {
+    this.navCtrl.navigateRoot('/success-register').then();
+  }
 
   ngOnInit() {
   }
