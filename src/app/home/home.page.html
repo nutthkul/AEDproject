@@ -10,6 +10,40 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding id="map_canvas" style="width: 100vw;height: 100vh;overflow: hidden">
-<!--  <ion-button ion-button (click)="onButtonClick()">ตำแหน่งของฉัน</ion-button>-->
+<ion-content padding id="map_canvas" style="width: 100vw;height: 100vh;overflow: hidden;">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" size="small">
+      <fa-icon [icon]="['fas', 'search']"></fa-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" style="margin-top: 15%;">
+    <ion-fab-button color="light" size="small">
+      <fa-icon [icon]="['fas', 'crosshairs']"></fa-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab [style.opacity]="SOS ? '0':'1'" vertical="center" horizontal="center" style="margin-top: 30vh;">
+    <ion-fab-button (click)="sos()" style="right: 0;width:20vw;height: 10vh;" color="danger">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <fa-icon [icon]="['fas','heartbeat']"></fa-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <b>SOS</b>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card [style.opacity]="SOS ? '1':'0'" style="margin-left: -5vw;margin-top:75vh;width: 100vw;height:16vh;position: fixed;">
+    <ion-card-header>
+      <ion-card-title>
+        <button (click)="sos()" style="float: right;background-color: transparent;"><b>X</b></button>
+        โรงพยาบาลมหาราช
+      </ion-card-title>
+      <ion-card-subtitle>{{ this.AEDLocation? this.AEDLocation:'ซอยลึก' }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

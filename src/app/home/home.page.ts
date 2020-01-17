@@ -21,6 +21,9 @@ import {
 export class HomePage implements OnInit {
     map: GoogleMap;
     loading: any;
+    AEDLocation: any;
+    SOS = false;
+    count = 1;
 
     constructor(
         public loadingCtrl: LoadingController,
@@ -59,6 +62,52 @@ export class HomePage implements OnInit {
         await this.loading.present();
 
         // Get the location of you
+        this.map.getMyLocation().then((location: MyLocation) => {
+            this.loading.dismiss();
+            console.log(JSON.stringify(location, null, 2));
+
+            // Move the map camera to the location with animation
+            this.map.animateCamera({
+                target: location.latLng,
+                zoom: 17,
+                tilt: 30
+            });
+            // add a marker
+            const marker: Marker = this.map.addMarkerSync({
+                title: 'AED จุดที่ 1',
+                snippet: 'โรงพยาบาลมหาราช',
+                position: location.latLng,
+                animation: GoogleMapsAnimation.BOUNCE
+            });
+
+            // show the infoWindow
+            marker.showInfoWindow();
+
+            // If clicked it, display the alert
+            marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+                this.showToast('clicked!');
+            });
+        })
+            .catch(err => {
+                this.loading.dismiss();
+                this.showToast(err.error_message);
+            });
+    }
+
+    sos() {
+        if (this.count === 3) {
+            this.SOS = !this.SOS;
+            this.count++;
+        } else if (this.count === 4) {
+            this.SOS = !this.SOS;
+            this.count = 1;
+        } else {
+            this.count++;
+        }
+        this.AEDLocation = 'ok';
+    }
+
+    myLocation() {
         this.map.getMyLocation().then((location: MyLocation) => {
             this.loading.dismiss();
             console.log(JSON.stringify(location, null, 2));
