@@ -7,6 +7,7 @@
 .buttoncss {
   --font-color: white;
   --background: brown;
+
 }
 .center{
   display: -webkit-box;
@@ -37,4 +38,8 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+* {
+  font-family: 'Kanit', sans-serif !important;
 }

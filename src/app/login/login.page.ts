@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @Component({
   selector: 'app-login',
@@ -6,16 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
+  constructor(private http: HTTP) {
+  }
 
-  constructor() {}
   clickBtn() {
-    let jsonObj = {
-      name: 'Nutthkul',
-      lastname: 'kulkritt',
-      age: 22
-    };
-    console.log(jsonObj.name + ' ' + jsonObj.lastname +
-        ' ' + jsonObj.age);
+    this.http.post('https://aednodejs.yuzudigital.com/login', {}, {})
+        .then(data => {
 
+        })
+        .catch(error => {
+
+        });
   }
 }
