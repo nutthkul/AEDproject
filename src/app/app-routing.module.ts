@@ -42,6 +42,18 @@ const routes: Routes = [
   {
     path: 'add-aed',
     loadChildren: () => import('./add-aed/add-aed.module').then( m => m.AddAedPageModule)
+  },
+  {
+    path: 'success-register',
+    loadChildren: () => import('./success-register/success-register.module').then( m => m.SuccessRegisterPageModule)
+  },
+  {
+    path: 'my-aed',
+    loadChildren: () => import('./my-aed/my-aed.module').then( m => m.MyAedPageModule)
+  },
+  {
+    path: 'add-aed2',
+    loadChildren: () => import('./add-aed2/add-aed2.module').then( m => m.AddAed2PageModule)
   }
 ];
 
