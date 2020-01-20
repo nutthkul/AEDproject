@@ -1,52 +1,24 @@
-.my-custom-menu {
-  --width: 500px;
-}
-.mycss {
-  text-transform: none;
-}
-.labelcss {
-  color: white;
-  text-align: center;
-  font-size: 20px;
-}
-.inputcss {
-  font-size: 28px;
-  color: brown;
-}
 .mycss1 {
   --background: #a52a2a;
 }
-.titlecss {
-  color: white;
-  font-weight: 600;
-  font-size: 50px;
-  text-align: center;
-}
-.loginlabel {
-  color: brown;
-  font-size: 40px;
-  font-weight: 600;
-  text-align: center;
-}
-.logincardcss {
+.cardcss {
   border-radius: 20px;
   --background: white;
 }
-.loginbuttoncss {
+.whitetext {
+  color: white;
+}
+.savecss {
   border-radius: 50px;
   --font-color: white;
   background: brown;
 
 }
-.right {
-  text-align: end;
-}
-
 * {
   font-family: 'Kanit', sans-serif !important;
 }
 
-.center {
+.center{
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -76,3 +48,4 @@
   -ms-flex-align: center;
   align-items: center;
 }
+
