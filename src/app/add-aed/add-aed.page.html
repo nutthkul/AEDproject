@@ -9,10 +9,25 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="mycss1">
   <ion-grid>
     <ion-card class="cardcss">
+      <div class="progressbar">
+        <ul>
+          <li>
+            <i class="fa"><img src="../../assets/icon/right.png"/></i>
+            <p>ลงทะเบียนเครื่อง AED</p>
+          </li>
+          <li>
+            <i class="fa"><img src="../../assets/icon/circle.png"/></i>
+            <p>รหัสประจำเครื่อง</p>
+          </li>
+          <li>
+            <i class="fa"><img src="../../assets/icon/circle.png"/></i>
+            <p>เสร็จสิ้น</p>
+          </li>
+        </ul>
+      </div>
       <ion-col class="center">
         <ion-avatar style="width: 100px; height: 100px;">
           <img src="../../assets/icon/images.png"/>
@@ -21,38 +36,38 @@
       <ion-item>
         <ion-label position="floating" class="inputcss">รายละเอียดสะถานที่*</ion-label>
         <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="name"></ion-input>
+          <ion-input [(ngModel)]="addressPoint" placeholder="โปรดระบุ" type="name"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">จุดสังเกตเพิ่มเติม*</ion-label>
         <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="email"></ion-input>
+          <ion-input [(ngModel)]="addressDetail" placeholder="โปรดระบุ" type="email"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
         <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="password"></ion-input>
+          <ion-input [(ngModel)]="phoneNo" placeholder="โปรดระบุ"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">รหัสเครื่อง*</ion-label>
         <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="password"></ion-input>
+          <ion-input [(ngModel)]="machineNo" placeholder="โปรดระบุ"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
-        <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
+        <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่องละติจูด*</ion-label>
         <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="telophonenumber"></ion-input>
+          <ion-input [(ngModel)]="lat" placeholder="โปรดระบุ"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
-        <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่อง*</ion-label>
+        <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่องลองติจูด*</ion-label>
         <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="telophonenumber"></ion-input>
-        </ion-item-divider>บ
+          <ion-input [(ngModel)]="lng" placeholder="โปรดระบุ"></ion-input>
+        </ion-item-divider>
       </ion-item>
       <ion-row>
         <ion-col>
@@ -69,7 +84,7 @@
       </ion-row>
       <br><br/>
       <ion-col class="center">
-        <ion-button class="savecss" expand="round" color="brown">บันทึก
+        <ion-button (click)="addData()" class="savecss" expand="round" color="brown">บันทึก
         </ion-button>
       </ion-col>
     </ion-card>

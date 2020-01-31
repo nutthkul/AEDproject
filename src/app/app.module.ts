@@ -14,7 +14,8 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import {far} from '@fortawesome/free-regular-svg-icons';
 import {fab} from '@fortawesome/free-brands-svg-icons';
-
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+// import { HTTP } from '@ionic-native/http/ngx';
 library.add(fas, far, fab);
 
 @NgModule({
@@ -26,6 +27,7 @@ library.add(fas, far, fab);
         IonicModule.forRoot(),
         IonicStorageModule.forRoot(),
         AppRoutingModule,
+        HttpClientModule,
     ],
     providers: [
         StatusBar,

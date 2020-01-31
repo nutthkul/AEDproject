@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http/ngx';
+import { Component } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
+import {NavController} from '@ionic/angular';
+import {json} from '@angular-devkit/core';
+
 
 @Component({
   selector: 'app-login',
@@ -8,11 +14,11 @@ import { HTTP } from '@ionic-native/http/ngx';
   styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
-  username: string;
+  phoneNo: string;
   password: string;
   // tslint:disable-next-line:variable-name
   api_base_url: string;
-  constructor(private storage: Storage, private http: HTTP) {
+  constructor(private storage: Storage, private http: HttpClient, public navCtrl: NavController) {
     this.storage.get('api_base_url').then((data) => {
       this.api_base_url = data;
     });
@@ -27,12 +33,32 @@ export class LoginPage {
   }
 
   login() {
-    console.log(this.username);
-    this.http.post(this.api_base_url, {username: this.username, password: this.password}, {})
-        .then((response) => {
-          console.log(response);
-          this.setData('username', this.username).then();
+    this.http.post(this.api_base_url + '/login', {phoneNo: this.phoneNo, password: this.password}, {})
+        .subscribe((response) => {
+
+          const aaa = JSON.stringify(response);
+          const datas = JSON.parse(aaa);
+          const status = datas.response_code;
+          const role = datas.data.result[0].roleId;
+          // console.log(aaa.response_code);
+          // login success
+          if (status === '0000') {
+              console.log('login pass');
+              this.setData('role', role);
+              if (role === '1') {
+                  console.log('admin na');
+              } else {
+                  console.log(' user na');
+              }
+          } else { // login fail
+              console.log('login fail');
+          }
+          this.setData('telephone', this.phoneNo).then();
           this.setData('password', this.password).then();
         });
+    // this.goToHome();
+  }
+  goToHome() {
+    this.navCtrl.navigateRoot('/home').then();
   }
 }
