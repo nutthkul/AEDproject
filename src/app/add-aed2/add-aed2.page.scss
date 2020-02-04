@@ -54,4 +54,39 @@
   -ms-flex-align: center;
   align-items: center;
 }
+.progressbar{
+  margin-top: 20px;
+  font-size: 20px;
+}
+.progressbar img{
+  display: inline-block;
+  width: 20px;
+}
+ul{
+  display: inline-flex;
+  padding-left: 20px;
+}
+ul li{
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+ul li .fa {
+  background: #ccc;
+  width: 10px;
+  height: 10px;
+  color: #fff;
+  border-radius: 50%;
+}
+ul li .fa::after{
+  content: '';
+  background: #ccc;
+  height: 2px;
+  width: 80px;
+  display: block;
+  position: absolute;
+  top: 50px;
+
+}
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
-// import { IonicStepperModule } from 'ionic-stepper';
 import { HttpClient } from '@angular/common/http';
 import {Storage} from '@ionic/storage';
 

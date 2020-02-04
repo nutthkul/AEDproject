@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="header">
     <ion-buttons slot="start">
-      <ion-menu-button (click)="goToHome()"></ion-menu-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
       ลงทะเบียนเครื่อง AED
@@ -15,16 +15,16 @@
       <div class="progressbar">
         <ul>
           <li>
-            <i class="fa"><img src="../../assets/icon/right.png"/></i>
-            <p>ลงทะเบียนเครื่อง AED</p>
+            <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
+            <p style="font-size: 10px">ลงทะเบียนเครื่อง AED</p>
           </li>
           <li>
-            <i class="fa"><img src="../../assets/icon/circle.png"/></i>
-            <p>รหัสประจำเครื่อง</p>
+            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+            <p style="font-size: 10px">รหัสประจำเครื่อง</p>
           </li>
           <li>
-            <i class="fa"><img src="../../assets/icon/circle.png"/></i>
-            <p>เสร็จสิ้น</p>
+            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+            <p style="font-size: 10px">เสร็จสิ้น</p>
           </li>
         </ul>
       </div>
