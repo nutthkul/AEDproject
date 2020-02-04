@@ -1,5 +1,5 @@
 
-<ion-header>
+<ion-header [style.z-index]="step === 1 ? '100000' : '10'">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -9,8 +9,22 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<div style="color:white;z-index: 10000;position: absolute;background-color: black;height: 100vh;width: 100vw;opacity: 0.5;"  [style.display]="first && step !== undefined ? '':'none'">
+  <div [style.display]="step === 1 ? '':'none'" align="center" style="margin-top: 7vh;margin-left: -86vw">
+    <p><fa-icon [icon]="['fas', 'arrow-up']"></fa-icon></p>
+    <p>เมนู</p>
+  </div>
+  <div [style.display]="step === 2 ? '':'none'" align="center" style="margin-top: 73vh;margin-left: 5vw">
+    <p>กด 3 ครั้ง เพื่อขอความช่วยเหลือ</p>
+    <p><fa-icon [icon]="['fas', 'arrow-down']"></fa-icon></p>
+  </div>
+</div>
 <ion-content padding id="map_canvas" style="width: 100vw;height: 100vh;overflow: hidden;">
+  <ion-fab [style.display]="step !== undefined ? '':'none'" [style.z-index]="step ? '100000' : '10'" style="--background: transparent;"  vertical="center" horizontal="end" slot="fixed">
+    <ion-button (click)="nextStep()" style="--background: transparent;--box-shadow: none;">
+      {{ step == 1 ? 'ข้าม >>>':'เสร็จสิ้น >>>'}}
+    </ion-button>
+  </ion-fab>
   <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button color="light" size="small">
       <fa-icon [icon]="['fas', 'search']"></fa-icon>
@@ -21,7 +35,7 @@
       <fa-icon [icon]="['fas', 'crosshairs']"></fa-icon>
     </ion-fab-button>
   </ion-fab>
-  <ion-fab [style.opacity]="SOS ? '0':'1'" vertical="center" horizontal="center" style="margin-top: 30vh;">
+  <ion-fab [style.z-index]="step === 2 ? '100000' : '10'" [style.opacity]="SOS ? '0':'1'" [style.display]="role === 2 ? 'none':''" vertical="center" horizontal="center" style="margin-top: 30vh;">
     <ion-fab-button (click)="sos()" style="right: 0;width:20vw;height: 10vh;" color="danger">
       <ion-grid>
         <ion-row>
@@ -37,7 +51,7 @@
       </ion-grid>
     </ion-fab-button>
   </ion-fab>
-  <ion-card [style.opacity]="SOS ? '1':'0'" style="margin-left: -5vw;margin-top:75vh;width: 100vw;height:16vh;position: fixed;">
+  <ion-card [style.opacity]="SOS ? '1':'0'" style="background-color:white !important;margin-left: -5vw;margin-top:75vh;width: 100vw;height:16vh;position: fixed;">
     <ion-card-header>
       <ion-card-title>
         <button (click)="sos()" style="float: right;background-color: transparent;"><b>X</b></button>
