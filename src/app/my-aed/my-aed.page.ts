@@ -12,8 +12,11 @@ import {HttpClient} from '@angular/common/http';
 export class MyAedPage implements OnInit {
   api_base_url: string;
   machineId: number;
+  machineNo: number;
   addressPoint: string;
   addressDetail: string;
+  updateDate: string;
+  datas: any;
   constructor(private storage: Storage, private http: HttpClient, public navCtrl: NavController) {
     this.storage.get('api_base_url').then((data) => {
       this.api_base_url = data;
@@ -41,6 +44,7 @@ export class MyAedPage implements OnInit {
         .subscribe((response) => {
           const responseObj = JSON.stringify(response);
           const datas = JSON.parse(responseObj);
+          this.datas = datas;
           const machineId = datas.data.machineId;
           const addressDetail = datas.data.addressDetail;
           const addressPoint = datas.data.addressPoint;
@@ -50,7 +54,6 @@ export class MyAedPage implements OnInit {
           const lng = datas.data.lng;
           const updateDate = datas.data.updateDate;
           const createDate = datas.data.createDate;
-          console.log(datas.data);
         });
   }
 }

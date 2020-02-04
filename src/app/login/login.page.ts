@@ -46,9 +46,9 @@ export class LoginPage {
               console.log('login pass');
               this.setData('role', role);
               if (role === '1') {
-                  console.log('admin na');
+                  this.goToHome();
               } else {
-                  console.log(' user na');
+                  this.goToHome();
               }
           } else { // login fail
               console.log('login fail');

@@ -25,7 +25,6 @@
       ลงทะเบียนเครื่อง AED
     </ion-title>
     <ion-buttons slot="end">
-
       <p style="padding-left: 10px; padding-right: 10px; font-size: x-small;">
         <ion-img (click)="goToAddAed()" style="width: 20px; margin: auto;" src="../../assets/icon/AED_LOGO.png"></ion-img>
         เพิ่มเครื่อง
@@ -40,9 +39,24 @@
     <ion-card class="cardcss">
       <div>
         <ion-item *ngFor="let p of datas.data">
+          <ion-col size="2">
+<!--            <ion-avatar>-->
+<!--              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZWALBcIoOCIqCewcXP2TozCrVPkl88BQGrNVlZroTdsigaByr">-->
+<!--            </ion-avatar>-->
+          </ion-col>
           <ion-label>
-
+            <p style="font-size:15px">{{machineId}}</p>
+            <p style="font-size: 10px">{{machineNo}}</p>
+            <p style="font-size: 10px">{{addressDetail}}</p>
+            <p style="font-size: 10px">{{addressPoint}}</p>
+            <p style="font-size: 10px">{{updateDate}}</p>
           </ion-label>
+          <ion-col size="3">
+            <p style="font-size: 9px">
+              รอการอนุมัติ
+            </p>
+            <p herf="#">แก้ไข</p>
+          </ion-col>
         </ion-item>
       </div>
     </ion-card>
