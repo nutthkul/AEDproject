@@ -27,7 +27,7 @@
     <ion-buttons slot="end">
 
       <p style="padding-left: 10px; padding-right: 10px; font-size: x-small;">
-        <ion-img style="width: 20px; margin: auto;" src="../../assets/icon/AED_LOGO.png"></ion-img>
+        <ion-img (click)="goToAddAed()" style="width: 20px; margin: auto;" src="../../assets/icon/AED_LOGO.png"></ion-img>
         เพิ่มเครื่อง
       </p>
     </ion-buttons>
@@ -39,43 +39,32 @@
   <ion-grid>
     <ion-card class="cardcss">
       <div>
-        <ion-item>
-          <ion-col size="2">
-            <ion-avatar>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZWALBcIoOCIqCewcXP2TozCrVPkl88BQGrNVlZroTdsigaByr">
-            </ion-avatar>
-          </ion-col>
-          <ion-col>
-            <p style="font-size:15px">รหัสประจำเครื่อง NGFERD</p>
-            <p style="font-size: 10px">ศูนย์ราชการ แจ้งวัฒนะ ถนน รัตนาธิเบต ตำบล บางกระสอ อำเภอเมืองนนทบุรี นนทบุรี 10111</p>
-          </ion-col>
-          <ion-col size="3">
-            <p style="font-size: 9px">
-              รอการอนุมัติ
-            </p>
-            <p herf="#">แก้ไข</p>
-          </ion-col>
+        <ion-item *ngFor="let p of datas.data">
+          <ion-label>
+
+          </ion-label>
         </ion-item>
-      </div>
-      <div>
-          <ion-item>
-            <ion-col size="2">
-              <ion-avatar>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZWALBcIoOCIqCewcXP2TozCrVPkl88BQGrNVlZroTdsigaByr">
-              </ion-avatar>
-            </ion-col>
-            <ion-col>
-              <p style="font-size:15px">รหัสประจำเครื่อง NGFERD</p>
-              <p style="font-size: 10px">ศูนย์ราชการ แจ้งวัฒนะ ถนน รัตนาธิเบต ตำบล บางกระสอ อำเภอเมืองนนทบุรี นนทบุรี 10111</p>
-            </ion-col>
-            <ion-col size="3">
-              <p style="font-size: 9px">
-                รอการอนุมัติ
-              </p>
-              <p herf="#">แก้ไข</p>
-            </ion-col>
-          </ion-item>
       </div>
     </ion-card>
   </ion-grid>
 </ion-content>
+
+<!--<ion-item>-->
+<!--  <ion-col size="2">-->
+<!--    <ion-avatar>-->
+<!--      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZWALBcIoOCIqCewcXP2TozCrVPkl88BQGrNVlZroTdsigaByr">-->
+<!--    </ion-avatar>-->
+<!--  </ion-col>-->
+<!--  <ion-col>-->
+<!--    <            <p style="font-size:15px">รหัสประจำเครื่อง NGFERD</p>-->
+<!--    &lt;!&ndash;            <p style="font-size: 10px" [(ngModel)]="machineId"></p>&ndash;&gt;-->
+<!--    &lt;!&ndash;            <p style="font-size: 10px" [(ngModel)]="addressDetail"></p>&ndash;&gt;-->
+<!--    &lt;!&ndash;            <p style="font-size: 10px" [(ngModel)]="addressPoint"></p>&ndash;&gt;>-->
+<!--  </ion-col>-->
+<!--  <ion-col size="3">-->
+<!--    <p style="font-size: 9px">-->
+<!--      รอการอนุมัติ-->
+<!--    </p>-->
+<!--    <p herf="#">แก้ไข</p>-->
+<!--  </ion-col>-->
+<!--</ion-item>-->
