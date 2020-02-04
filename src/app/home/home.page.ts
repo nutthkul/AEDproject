@@ -12,6 +12,7 @@ import {
     GoogleMapsAnimation,
     MyLocation
 } from '@ionic-native/google-maps';
+import {Storage} from '@ionic/storage';
 
 @Component({
     selector: 'app-home',
@@ -24,11 +25,26 @@ export class HomePage implements OnInit {
     AEDLocation: any;
     SOS = false;
     count = 1;
+    role = 2;
+    first = true;
+    step = 1;
 
     constructor(
         public loadingCtrl: LoadingController,
         public toastCtrl: ToastController,
-        private platform: Platform) {
+        private platform: Platform,
+        public storage: Storage) {
+        if (this.role !== 2) {
+            storage.get('first').then((data) => {
+                if (data === undefined) {
+                    storage.set('first', true);
+                }
+                this.first = data === true;
+                // storage.set('first', false);
+            });
+        } else {
+            this.first = false;
+        }
     }
 
     async ngOnInit() {
@@ -148,6 +164,13 @@ export class HomePage implements OnInit {
         });
 
         toast.present();
+    }
+
+    nextStep() {
+        this.step += 1;
+        if (this.step === 3) {
+            this.step = undefined;
+        }
     }
 
 }
