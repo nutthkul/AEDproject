@@ -1,11 +1,11 @@
 // import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { HTTP } from '@ionic-native/http/ngx';
+// import { HTTP } from '@ionic-native/http/ngx';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import {NavController} from '@ionic/angular';
-import {json} from '@angular-devkit/core';
+// import {json} from '@angular-devkit/core';
 
 
 @Component({
@@ -16,6 +16,7 @@ import {json} from '@angular-devkit/core';
 export class LoginPage {
   phoneNo: string;
   password: string;
+  role: string;
   // tslint:disable-next-line:variable-name
   api_base_url: string;
   constructor(private storage: Storage, private http: HttpClient, public navCtrl: NavController) {
@@ -30,6 +31,7 @@ export class LoginPage {
 
   async getData(key: string) {
     await this.storage.get(key).then((data) => data);
+    console.log('role is', data);
   }
 
   login() {

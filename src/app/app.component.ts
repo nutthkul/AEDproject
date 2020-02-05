@@ -50,7 +50,12 @@ export class AppComponent {
         {
             title: 'ลงทะเบียนเครื่อง AED',
             url: '/add-aed',
-            icon: ''
+            icon: 'add-circle'
+        },
+        {
+            title: 'ออกจากระบบ',
+            url: '/logout',
+            icon: 'log-out'
         },
     ];
 
