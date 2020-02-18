@@ -51,9 +51,10 @@ export class AddAedPage implements OnInit {
           const datas = JSON.parse(responseObj);
           const status = datas.response_code;
           if (status === '0000') {
-            console.log('add success');
+            alert('add success');
+            this.navCtrl.navigateRoot('/add-aed2').then();
           } else {
-            console.log('add failed');
+            alert('add failed');
           }
           // console.log(response);
       });

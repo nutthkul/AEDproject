@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { SuccessRegisterPageRoutingModule } from './success-register-routing.module';
 
 import { SuccessRegisterPage } from './success-register.page';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
+    FontAwesomeModule,
     CommonModule,
     FormsModule,
     IonicModule,

@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-menu-button (click)="goToHome()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      ลงทะเบียน
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="mycss1">
+    <ion-card class="cardcss">
+      <ion-item>
+        <div class="progressbar">
+          <ul>
+            <li>
+              <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+              <p style="font-size: 10px">สมัครสมาชิก</p>
+            </li>
+            <li>
+              <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
+              <p style="font-size: 10px">หมายเลขโทรสัพท์</p>
+            </li>
+            <li>
+              <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+              <p style="font-size: 10px">เสร็จสิ้น</p>
+            </li>
+          </ul>
+        </div>
+        </ion-item>
+      <ion-item>
+      <ion-col>
+        <ion-row>
+          <ion-label>
+            หมายเลขโทรสัพท์ของคุณคือ
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="0899999999">
+          </ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-button (click)="goToSuccess()" class="mycss1">
+            ถัดไป
+          </ion-button>
+        </ion-row>
+      </ion-col>
+      </ion-item>
+    </ion-card>
+</ion-content>
