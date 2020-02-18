@@ -33,9 +33,9 @@
         </ion-avatar>
       </ion-col>
       <ion-item>
-        <ion-label position="floating" class="inputcss">รายละเอียดสะถานที่*</ion-label>
+        <ion-label position="floating" class="inputcss">รายละเอียดสถานที่*</ion-label>
         <ion-item-divider>
-          <ion-input [(ngModel)]="addressPoint" placeholder="โปรดระบุ" type="name"></ion-input>
+          <ion-input [(ngModel)]="addressPoint" placeholder="โปรดระบุ" type="name" required=""></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
@@ -47,7 +47,7 @@
       <ion-item>
         <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
         <ion-item-divider>
-          <ion-input [(ngModel)]="phoneNo" placeholder="โปรดระบุ"></ion-input>
+          <ion-input [(ngModel)]="phoneNo" placeholder="โปรดระบุ" type="number"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
@@ -59,13 +59,13 @@
       <ion-item>
         <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่องละติจูด*</ion-label>
         <ion-item-divider>
-          <ion-input [(ngModel)]="lat" placeholder="โปรดระบุ"></ion-input>
+          <ion-input [(ngModel)]="lat" placeholder="โปรดระบุ" type="number"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่องลองติจูด*</ion-label>
         <ion-item-divider>
-          <ion-input [(ngModel)]="lng" placeho  lder="โปรดระบุ"></ion-input>
+          <ion-input [(ngModel)]="lng" placeholder="โปรดระบุ" type="number"></ion-input>
         </ion-item-divider>
       </ion-item>
       <ion-row>

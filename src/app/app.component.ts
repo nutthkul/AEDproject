@@ -43,14 +43,9 @@ export class AppComponent {
             icon: 'cog'
         },
         {
-            title: 'List',
-            url: '/list',
-            icon: 'list'
-        },
-        {
             title: 'ลงทะเบียนเครื่อง AED',
             url: '/add-aed',
-            icon: ''
+            icon: 'ios-add-circle'
         },
     ];
 
@@ -76,14 +71,14 @@ export class AppComponent {
             icon: 'cog'
         },
         {
-            title: 'List',
-            url: '/list',
+            title: 'เครื่องAEDของฉัน',
+            url: '/my-aed',
             icon: 'list'
         },
         {
             title: 'ลงทะเบียนเครื่อง AED',
             url: '/add-aed',
-            icon: ''
+            icon: 'ios-add-circle'
         },
         {
             title: 'ออกจากระบบ',

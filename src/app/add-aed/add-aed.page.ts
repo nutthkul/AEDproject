@@ -53,6 +53,7 @@ export class AddAedPage implements OnInit {
           const status = datas.response_code;
           if (status === '0000') {
             console.log('add success');
+            this.navCtrl.navigateRoot('/add-aed2').then();
           } else {
             console.log('add failed');
           }
