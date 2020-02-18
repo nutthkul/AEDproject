@@ -58,6 +58,14 @@ const routes: Routes = [
   {
     path: 'member2',
     loadChildren: () => import('./member2/member2.module').then( m => m.Member2PageModule)
+  },
+  {
+    path: 'success-aed',
+    loadChildren: () => import('./success-aed/success-aed.module').then( m => m.SuccessAedPageModule)
+  },
+  {
+    path: 'success-aed',
+    loadChildren: () => import('./success-aed/success-aed.module').then( m => m.SuccessAedPageModule)
   }
 ];
 

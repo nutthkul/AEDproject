@@ -42,7 +42,9 @@ export class AddAed2Page implements OnInit {
           const machineNo = datas.data.machineNo;
         });
   }
-
+  goToSuccess() {
+    this.navCtrl.navigateRoot('/success-aed').then();
+  }
 }
 
 
