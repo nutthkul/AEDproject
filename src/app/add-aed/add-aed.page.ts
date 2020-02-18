@@ -71,20 +71,20 @@ export class AddAedPage implements OnInit {
       machineNo: this.machineNo,
       lat: this.lat,
       lng: this.lng,
-      imgUrl: this.imgUrl })
-        .subscribe((response) => {
-          const responseObj = JSON.stringify(response);
-          const datas = JSON.parse(responseObj);
-          const status = datas.response_code;
-          if (status === '0000') {
-            alert('add success');
-            this.navCtrl.navigateRoot('/add-aed2').then();
-          } else {
-            alert('add failed');
-          }
-          // console.log(response);
-      });
-    }
+      imgUrl: this.imgUrl
+    };
+
+    this.rest.addData(param).then((result: any) => {
+      console.log(result);
+      if (result.response_code === '0000') {
+        alert(result.response_description);
+        console.log('add success');
+      } else {
+        alert(result.response_description);
+        console.log('add failed');
+      }
+    });
+  }
   goToStep2() {
     this.navCtrl.navigateRoot('/add-aed2').then();
   }

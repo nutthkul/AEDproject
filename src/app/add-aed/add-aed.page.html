@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="header">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button (click)="goToHome()"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       ลงทะเบียนเครื่อง AED
@@ -10,20 +10,21 @@
 </ion-header>
 
 <ion-content class="mycss1">
-    <ion-card class="cardcss" style="margin: 20px; display: grid">
+  <ion-grid>
+    <ion-card class="cardcss">
       <div class="progressbar">
         <ul>
           <li>
-            <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
-            <p style="font-size: 10px">ลงทะเบียนเครื่อง AED</p>
+            <i class="fa"><img src="../../assets/icon/right.png"/></i>
+            <p>ลงทะเบียนเครื่อง AED</p>
           </li>
           <li>
-            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
-            <p style="font-size: 10px">รหัสประจำเครื่อง</p>
+            <i class="fa"><img src="../../assets/icon/circle.png"/></i>
+            <p>รหัสประจำเครื่อง</p>
           </li>
           <li>
-            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
-            <p style="font-size: 10px">เสร็จสิ้น</p>
+            <i class="fa"><img src="../../assets/icon/circle.png"/></i>
+            <p>เสร็จสิ้น</p>
           </li>
         </ul>
       </div>
@@ -87,4 +88,5 @@
         </ion-button>
       </ion-col>
     </ion-card>
+  </ion-grid>
 </ion-content>
