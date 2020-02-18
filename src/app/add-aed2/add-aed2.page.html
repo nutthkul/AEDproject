@@ -12,22 +12,38 @@
 
 <ion-content class="mycss1">
   <ion-grid justify-content-center align-items-center>
-    <ion-card justify-content-center align-items-center class="cardcss" style="padding: 10px; height: 630px">
-      <ion-row align-items-center justify-content-center	 style="height: 30%">
+    <ion-card justify-content-center align-items-center class="cardcss" style="height: 630px">
+      <div class="progressbar">
+        <ul>
+          <li>
+            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+            <p style="font-size: 10px">ลงทะเบียนเครื่อง AED</p>
+          </li>
+          <li>
+            <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
+            <p style="font-size: 10px">รหัสประจำเครื่อง</p>
+          </li>
+          <li>
+            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+            <p style="font-size: 10px">เสร็จสิ้น</p>
+          </li>
+        </ul>
+      </div>
+      <ion-row align-items-center justify-content-center	 style="height: 20%">
         <div style="width: 100%; text-align: center; font-size: 20px">
           <ion-label text-center>รหัสประจำเครื่อง ของท่านคือ</ion-label>
         </div>
       </ion-row>
       <ion-row align-items-center justify-content-center	 style="height: 30%">
         <div style="width: 100%">
-          <ion-input text-center placeholder="HELLO !!" style="background-color: #d7d8da; padding: 10px;
-    border-radius: 6px;"></ion-input>
+          <ion-input text-center style="background-color: #d7d8da; padding: 10px;
+    border-radius: 6px;">{{machineNo}}</ion-input>
         </div>
       </ion-row>
       <br>
       <ion-grid>
         <div class="center">
-          <ion-button class="buttoncss" expand="round" color="brown">
+          <ion-button (click)="goToSuccess()" class="buttoncss" expand="round" color="brown">
             ถัดไป
           </ion-button>
         </div>

@@ -28,6 +28,7 @@ export class LoginPage {
 
   async getData(key: string) {
     await this.storage.get(key).then((data) => data);
+    // console.log('role is', data);
   }
 
   login() {

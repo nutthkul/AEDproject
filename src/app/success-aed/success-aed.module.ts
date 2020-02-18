@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SuccessRegisterPageRoutingModule } from './success-register-routing.module';
+import { SuccessAedPageRoutingModule } from './success-aed-routing.module';
 
-import { SuccessRegisterPage } from './success-register.page';
+import { SuccessAedPage } from './success-aed.page';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -15,8 +15,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     CommonModule,
     FormsModule,
     IonicModule,
-    SuccessRegisterPageRoutingModule
+    SuccessAedPageRoutingModule
   ],
-  declarations: [SuccessRegisterPage]
+  declarations: [SuccessAedPage]
 })
-export class SuccessRegisterPageModule {}
+export class SuccessAedPageModule {}
