@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import {NavController} from '@ionic/angular';
 // import { IonicStepperModule } from 'ionic-stepper';
 import { HttpClient } from '@angular/common/http';
-import { Storage } from '@ionic/storage';
-import { RestService } from '../services/rest.service';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'app-add-aed',
@@ -20,13 +19,10 @@ export class AddAedPage implements OnInit {
   lng: string;
   imgUrl: string;
   api_base_url: string;
-
-  constructor(
-    private storage: Storage,
-    private http: HttpClient,
-    public rest: RestService,
-    public navCtrl: NavController
-  ) {
+  constructor(private storage: Storage, private http: HttpClient, public navCtrl: NavController) {
+    this.storage.get('api_base_url').then((data) => {
+      this.api_base_url = data;
+    });
   }
   async setData(key: string, value: string) {
     await this.storage.set(key, value).then(() => true);
@@ -43,28 +39,7 @@ export class AddAedPage implements OnInit {
   ngOnInit() {
   }
   addData() {
-    // this.http.post(this.api_base_url + '/registerMachine', {
-    //   addressDetail: this.addressDetail,
-    //   addressPoint: this.addressPoint,
-    //   phoneNo: this.phoneNo,
-    //   machineNo: this.machineNo,
-    //   lat: this.lat,
-    //   lng: this.lng,
-    //   imgUrl: this.imgUrl
-    // })
-    //   .subscribe((response) => {
-    //     const responseObj = JSON.stringify(response);
-    //     const datas = JSON.parse(responseObj);
-    //     const status = datas.response_code;
-    //     if (status === '0000') {
-    //       console.log('add success');
-    //     } else {
-    //       console.log('add failed');
-    //     }
-    //     // console.log(response);
-    //   });
-
-    const param = {
+    this.http.post(this.api_base_url + '/registerMachine', {
       addressDetail: this.addressDetail,
       addressPoint: this.addressPoint,
       phoneNo: this.phoneNo,
@@ -77,14 +52,13 @@ export class AddAedPage implements OnInit {
           const datas = JSON.parse(responseObj);
           const status = datas.response_code;
           if (status === '0000') {
-            alert('add success');
-            this.navCtrl.navigateRoot('/add-aed2').then();
+            console.log('add success');
           } else {
-            alert('add failed');
+            console.log('add failed');
           }
           // console.log(response);
-      });
-    }
+        });
+  }
   goToStep2() {
     this.navCtrl.navigateRoot('/add-aed2').then();
   }
