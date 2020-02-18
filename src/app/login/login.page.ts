@@ -1,11 +1,9 @@
 // import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { HTTP } from '@ionic-native/http/ngx';
-import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
-import {NavController} from '@ionic/angular';
-import {json} from '@angular-devkit/core';
+import { Router } from '@angular/router';
+import { RestService } from '../services/rest.service';
+import { Events } from '@ionic/angular';
 
 
 @Component({
@@ -14,14 +12,14 @@ import {json} from '@angular-devkit/core';
   styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
-  phoneNo: string;
-  password: string;
-  // tslint:disable-next-line:variable-name
-  api_base_url: string;
-  constructor(private storage: Storage, private http: HttpClient, public navCtrl: NavController) {
-    this.storage.get('api_base_url').then((data) => {
-      this.api_base_url = data;
-    });
+  phoneNo: any;
+  password: any;
+  constructor(
+    private storage: Storage,
+    private router: Router,
+    public rest: RestService,
+    public events: Events
+  ) {
   }
 
   async setData(key: string, value: string) {
@@ -33,32 +31,23 @@ export class LoginPage {
   }
 
   login() {
-    this.http.post(this.api_base_url + '/login', {phoneNo: this.phoneNo, password: this.password}, {})
-        .subscribe((response) => {
+    const param = {
+      phoneNo: this.phoneNo,
+      password: this.password
+    };
 
-          const aaa = JSON.stringify(response);
-          const datas = JSON.parse(aaa);
-          const status = datas.response_code;
-          const role = datas.data.result[0].roleId;
-          // console.log(aaa.response_code);
-          // login success
-          if (status === '0000') {
-              console.log('login pass');
-              this.setData('role', role);
-              if (role === '1') {
-                  this.goToHome();
-              } else {
-                  this.goToHome();
-              }
-          } else { // login fail
-              console.log('login fail');
-          }
-          this.setData('telephone', this.phoneNo).then();
-          this.setData('password', this.password).then();
+    this.rest.login(param).then((result: any) => {
+      console.log(result);
+      if (result.response_code === '0000') {
+        console.log(result.data.result[0]);
+        this.storage.set('user', result.data.result[0]).then(user => {
+          this.events.publish('user:login');
         });
+        this.router.navigate(['/home']);
+      } else {
+        alert(result.response_description);
+      }
+    });
     // this.goToHome();
-  }
-  goToHome() {
-    this.navCtrl.navigateRoot('/home').then();
   }
 }
