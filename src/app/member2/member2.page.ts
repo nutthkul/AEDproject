@@ -4,18 +4,18 @@ import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-member',
-  templateUrl: './member.page.html',
-  styleUrls: ['./member.page.scss'],
+  templateUrl: './member2.page.html',
+  styleUrls: ['./member2.page.scss'],
 })
-export class MemberPage implements OnInit {
+export class Member2Page implements OnInit {
 
   constructor(public navCtrl: NavController) { }
 
   goToHome() {
     this.navCtrl.navigateRoot('/home').then();
   }
-  goToStep2() {
-    this.navCtrl.navigateRoot('/member2').then();
+  goToSuccess() {
+    this.navCtrl.navigateRoot('/success-register').then();
   }
 
   ngOnInit() {
