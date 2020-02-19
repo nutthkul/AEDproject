@@ -51,4 +51,7 @@ export class LoginPage {
     });
     // this.goToHome();
   }
+  register() {
+    this.router.navigate(['/member']);
+  }
 }
