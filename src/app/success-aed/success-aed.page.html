@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar class="header">
     <ion-buttons slot="start">
-      <ion-menu-button (click)="goToHome()"></ion-menu-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
       ลงทะเบียน
@@ -13,7 +13,8 @@
 
 <ion-content class="mycss1">
   <ion-card class="cardcss">
-    <ion-item>
+    <ion-col>
+      <ion-row>
       <div class="progressbar">
         <ul>
           <li>
@@ -30,16 +31,31 @@
           </li>
         </ul>
       </div>
-    </ion-item>
-    <ion-item>
+      </ion-row>
+      <ion-row>
       <ion-avatar style="width: 200px; height: 200px; margin: auto;">
         <img src="../../assets/icon/successicon.png"/>
       </ion-avatar>
-    </ion-item>
-    <ion-item>
-      <ion-label class="center" style="position: relative">
-        ลงทะเบียนเสร็จสิ้น
-      </ion-label>
-    </ion-item>
+      </ion-row>
+      <div style="margin-bottom: 20px;">
+      <ion-row>
+        <ion-label style="position: relative; margin: auto; font-size: 20px;">
+          ลงทะเบียนเครื่อง AED เสร็จสิ้น
+        </ion-label>
+      </ion-row>
+      </div>
+      <div style="margin-bottom: 40px;">
+        <ion-row>
+          <ion-label style="position: relative; margin: auto; font-size: 10px; color: brown;">
+            หมายเหตุ: เช็คสถานะการลงทะเบียนของเครื่องได้ที่เมนู เครื่อง AED ของฉัน
+          </ion-label>
+        </ion-row>
+      </div>
+      <ion-row>
+      <ion-button (click)="goToHome()" class="mycss1" style="margin: auto;">
+        บันทึก
+      </ion-button>
+      </ion-row>
+    </ion-col>
   </ion-card>
 </ion-content>

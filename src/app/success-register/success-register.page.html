@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar class="header">
     <ion-buttons slot="start">
-      <ion-menu-button (click)="goToHome()"></ion-menu-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
       ลงทะเบียน
@@ -13,33 +13,42 @@
 
 <ion-content class="mycss1">
   <ion-card class="cardcss">
-    <ion-item>
-      <div class="progressbar">
-        <ul>
-          <li>
-            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
-            <p style="font-size: 10px">สมัครสมาชิก</p>
-          </li>
-          <li>
-            <fa-icon [icon]="['fas', 'circle']"></fa-icon>
-            <p style="font-size: 10px">หมายเลขโทรสัพท์</p>
-          </li>
-          <li>
-            <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
-            <p style="font-size: 10px">เสร็จสิ้น</p>
-          </li>
-        </ul>
-      </div>
-    </ion-item>
-    <ion-item>
+    <ion-col>
+      <ion-row>
+        <div class="progressbar">
+          <ul>
+            <li>
+              <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+              <p style="font-size: 10px">ลงทะเบียนเครื่อง AED</p>
+            </li>
+            <li>
+              <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+              <p style="font-size: 10px">รหัสประจำเครื่อง</p>
+            </li>
+            <li>
+              <fa-icon [icon]="['fas', 'check-circle']"></fa-icon>
+              <p style="font-size: 10px">เสร็จสิ้น</p>
+            </li>
+          </ul>
+        </div>
+      </ion-row>
+      <ion-row>
         <ion-avatar style="width: 200px; height: 200px; margin: auto;">
           <img src="../../assets/icon/successicon.png"/>
         </ion-avatar>
-    </ion-item>
-    <ion-item>
-        <ion-label class="center" style="position: relative">
-          ลงทะเบียนเสร็จสิ้น
-        </ion-label>
-    </ion-item>
+      </ion-row>
+      <div style="margin-bottom: 20px;">
+        <ion-row>
+          <ion-label style="position: relative; margin: auto; font-size: 20px;">
+            ลงทะเบียนเสร็จสิ้น
+          </ion-label>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-button  (click)="goToHome()" class="mycss1" style="margin: auto;">
+          กลับสู่หน้าหลัก
+        </ion-button>
+      </ion-row>
+    </ion-col>
   </ion-card>
 </ion-content>
