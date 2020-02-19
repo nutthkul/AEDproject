@@ -2,7 +2,7 @@
   color: white;
   background: brown;
   --background: #a52a2a;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Kanit', sans-serif !important;
 }
 .mycss1 {
   --background: #a52a2a;
@@ -14,7 +14,7 @@
 .whitetext {
   color: white;
 }
-.savecss {
+.buttoncss {
   border-radius: 50px;
   --font-color: white;
   background: brown;
@@ -54,10 +54,10 @@
   -ms-flex-align: center;
   align-items: center;
 }
-
 .progressbar{
-  margin-top: 20px;
+  margin: auto;
   font-size: 20px;
+  display: table;
 }
 .progressbar img{
   display: inline-block;
@@ -90,3 +90,4 @@ ul li .fa::after{
   top: 50px;
 
 }
+
