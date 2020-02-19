@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-toolbar class="header">
     <ion-buttons slot="start">
@@ -12,8 +11,8 @@
 
 
 <ion-content class="mycss1">
+  <ion-grid justify-content-center align-items-center>
     <ion-card class="cardcss">
-      <ion-item>
         <div class="progressbar">
           <ul>
             <li>
@@ -30,24 +29,22 @@
             </li>
           </ul>
         </div>
-        </ion-item>
-      <ion-item>
       <ion-col>
-        <ion-row>
-          <ion-label>
+        <ion-row style="margin-bottom: 20px;">
+          <ion-label style="margin: auto; font-size: 20px">
             หมายเลขโทรสัพท์ของคุณคือ
           </ion-label>
         </ion-row>
-        <ion-row>
-          <ion-input placeholder="0899999999">
+        <ion-row style="margin-bottom: 20px;">
+          <ion-input text-center ngModel="machineNo" style="font-size: 25px">
           </ion-input>
         </ion-row>
         <ion-row>
-          <ion-button (click)="goToSuccess()" class="mycss1">
+          <ion-button (click)="goToSuccess()" class="mycss1" style="margin: auto;">
             ถัดไป
           </ion-button>
         </ion-row>
       </ion-col>
-      </ion-item>
     </ion-card>
+  </ion-grid>
 </ion-content>
