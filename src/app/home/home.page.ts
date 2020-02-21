@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
     AEDLocation: any;
     SOS = false;
     count = 1;
-    role = 2;
+    role = 1;
     first = true;
     step = 1;
 
