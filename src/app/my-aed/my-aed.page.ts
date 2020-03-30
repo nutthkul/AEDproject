@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {HttpClient} from '@angular/common/http';
+import {forEach} from '@angular-devkit/schematics';
 
 @Component({
   selector: 'app-my-aed',
@@ -11,7 +12,7 @@ import {HttpClient} from '@angular/common/http';
 
 export class MyAedPage implements OnInit {
   api_base_url: string;
-  machineId: number;
+  deviceId: number;
   machineNo: number;
   addressPoint: string;
   addressDetail: string;
@@ -39,21 +40,14 @@ export class MyAedPage implements OnInit {
   goToAddAed() {
     this.navCtrl.navigateRoot('/add-aed').then();
   }
-  getAllMatchine() {
-    this.http.get(this.api_base_url + '/getAllMachine', {})
+  async getAllMatchine() {
+    // this.http.get(this.api_base_url + '/getAllMachine', {})
+      await this.http.get('http://111.223.48.208:8080/device/getDeviceAll', {headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
         .subscribe((response) => {
           const responseObj = JSON.stringify(response);
           const datas = JSON.parse(responseObj);
           this.datas = datas;
-          const machineId = datas.data.machineId;
-          const addressDetail = datas.data.addressDetail;
-          const addressPoint = datas.data.addressPoint;
-          const phoneNo = datas.data.phoneNo;
-          const machineNo = datas.data.machineNo;
-          const lat = datas.data.lat;
-          const lng = datas.data.lng;
-          const updateDate = datas.data.updateDate;
-          const createDate = datas.data.createDate;
+          console.log(datas);
         });
   }
 }

@@ -33,29 +33,49 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-    <ion-card *ngIf="datas !== undefined">
-        <ion-item *ngFor="let p of datas.data">
-            <ion-label style="font-size: 15px">
-                {{p.machineId}}
+    <ion-card *ngIf="datas !== undefined" style="max-width: 500px; margin: auto; margin-top: 10px">
+        <ion-card-content *ngFor="let p of datas">
+            <ion-row>
+                <ion-col>
+                    <ion-label style="font-size: 15px; margin-left: 15px">
+                        device id: {{p.deviceId}}
+                    </ion-label>
+                </ion-col>
+                <ion-col style="display: contents">
+                    <ion-label style="font-size: 10px;">
+                        {{p.status}}
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+               <ion-col>
+                   <ion-label style="font-size: 10px;">
+                       device name: {{p.deviceName}}
+                   </ion-label>
+               </ion-col>
+                <ion-col style="display: contents">
+                    <ion-label style="font-size: 10px">
+                        แก้ไข
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+
+            <ion-label style="font-size: 10px;">
+                device desc: {{p.deviceDesc}}
+            </ion-label>
+            <ion-row>
+                <ion-label style="font-size: 10px">
+                    Location: {{p.deviceLocationName}}
+                </ion-label>
+            </ion-row>
+            <ion-label style="font-size: 10px">
+                {{p.deviceMark}}
             </ion-label>
             <ion-label style="font-size: 10px">
-                {{p.machineNo}}
+                {{p.deviceContact}}
             </ion-label>
-            <ion-label style="font-size: 10px">
-                {{p.addressPoint}}
-            </ion-label>
-            <ion-label style="font-size: 10px">
-                {{p.addressDetail}}
-            </ion-label>
-            <ion-label style="font-size: 10px">
-                {{p.updateDate}}
-            </ion-label>
-            <ion-label style="font-size: 10px">
-                แก้ไข
-            </ion-label>
-        </ion-item>
+        </ion-card-content>
     </ion-card>
 </ion-content>
 
