@@ -9,7 +9,7 @@ export interface Language {
   providedIn: 'root'
 })
 export class RestService {
-  apiUrl = 'https://aednodejs.yuzudigital.com/';
+  apiUrl = 'http://111.223.48.208:8080';
   currentLanguage: Language;
   constructor(public http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class RestService {
       const header = new HttpHeaders();
       header.append('Content-type', 'json/data; charset=utf-8');
 
-      this.http.post(this.apiUrl + 'login', param, { headers: header })
+      this.http.get(this.apiUrl + '/user/login' + '/' + param.mobileNo + '/' + param.password )
         .subscribe(res => {
 
           // this.setUserLogin(res);
@@ -46,4 +46,22 @@ export class RestService {
     });
 
   }
+  getUserAll(param: any) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.get(this.apiUrl + '/user/getUserAll')
+          .subscribe(res => {
+
+            // this.setUserLogin(res);
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+
+  }
+
+
 }

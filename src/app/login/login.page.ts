@@ -12,7 +12,7 @@ import { Events } from '@ionic/angular';
   styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
-  phoneNo: any;
+  mobileNo: any;
   password: any;
   constructor(
     private storage: Storage,
@@ -33,15 +33,15 @@ export class LoginPage {
 
   login() {
     const param = {
-      phoneNo: this.phoneNo,
+      mobileNo: this.mobileNo,
       password: this.password
     };
 
     this.rest.login(param).then((result: any) => {
       console.log(result);
-      if (result.response_code === '0000') {
-        console.log(result.data.result[0]);
-        this.storage.set('user', result.data.result[0]).then(user => {
+      if (result.status !== '500') {
+        // console.log(result.data.result[0]);
+        this.storage.set('user', result).then(user => {
           this.events.publish('user:login');
         });
         this.router.navigate(['/home']);
