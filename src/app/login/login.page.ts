@@ -41,7 +41,7 @@ export class LoginPage {
       console.log(result);
       if (result.status !== '500') {
         // console.log(result.data.result[0]);
-        this.storage.set('user', result).then(user => {
+        this.storage.set('userId', result).then(userId => {
           this.events.publish('user:login');
         });
         this.router.navigate(['/home']);

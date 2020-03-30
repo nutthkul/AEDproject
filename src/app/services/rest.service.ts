@@ -51,7 +51,7 @@ export class RestService {
       const header = new HttpHeaders();
       header.append('Content-type', 'json/data; charset=utf-8');
 
-      this.http.get(this.apiUrl + '/user/getUserAll')
+      this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
           .subscribe(res => {
 
             // this.setUserLogin(res);
