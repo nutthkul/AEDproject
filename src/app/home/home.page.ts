@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
     ToastController,
     Platform,
@@ -12,7 +12,7 @@ import {
     GoogleMapsAnimation,
     MyLocation
 } from '@ionic-native/google-maps';
-import {Storage} from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-home',
@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
     loading: any;
     AEDLocation: any;
     SOS = false;
+    SOSHelp = false;
     count = 1;
     role = 1;
     first = true;
@@ -100,8 +101,11 @@ export class HomePage implements OnInit {
             marker.showInfoWindow();
 
             // If clicked it, display the alert
-            marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-                this.showToast('clicked!');
+            marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((event) => {
+                // this.showToast('clicked!');
+                // console.log(event.latLng);
+                // console.log(event.latLng.lat);
+                // window.open('https://maps.google.com/?q=13.7551,100.4984', '_system');
             });
         })
             .catch(err => {
@@ -120,7 +124,7 @@ export class HomePage implements OnInit {
         } else {
             this.count++;
         }
-        this.AEDLocation = 'ok';
+        this.AEDLocation = 'แจ้งเตือนไปยังผู้ช่วยแล้ว!!';
     }
 
     myLocation() {
@@ -142,12 +146,24 @@ export class HomePage implements OnInit {
                 animation: GoogleMapsAnimation.BOUNCE
             });
 
+            // const pos = {
+            //     lat: 13.7551,
+            //     lng: 100.4984
+            //   };
+            // const marker2: Marker = this.map.addMarkerSync({
+            //     title: 'AED จุดที่ 2',
+            //     snippet: 'โรงพยาบาลมหาราช',
+            //     position: pos,
+            //     animation: GoogleMapsAnimation.BOUNCE
+            // });
+
             // show the infoWindow
             marker.showInfoWindow();
 
             // If clicked it, display the alert
-            marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-                this.showToast('clicked!');
+            marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((event) => {
+                // this.showToast('clicked!');
+                // window.open('https://maps.google.com/?q=' + event.latLng.lat() + ',' + event.latLng.lng(), '_system');
             });
         })
             .catch(err => {
@@ -171,6 +187,17 @@ export class HomePage implements OnInit {
         if (this.step === 3) {
             this.step = undefined;
         }
+    }
+
+    notificationPop() {
+        this.SOSHelp = true;
+        this.step = 3;
+    }
+
+    help() {
+        window.open('https://maps.google.com/?q=13.7551,100.4984', '_system');
+        this.SOSHelp = false;
+        this.step = 1;
     }
 
 }

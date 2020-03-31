@@ -32,23 +32,25 @@ export class LoginPage {
   }
 
   login() {
-    const param = {
-      mobileNo: this.mobileNo,
-      password: this.password
-    };
 
-    this.rest.login(param).then((result: any) => {
-      console.log(result);
-      if (result.status !== '500') {
-        // console.log(result.data.result[0]);
-        this.storage.set('userId', result).then(userId => {
-          this.events.publish('user:login');
-        });
-        this.router.navigate(['/home']);
-      } else {
-        alert(result.response_description);
-      }
-    });
+    this.router.navigate(['/home']);
+    // const param = {
+    //   mobileNo: this.mobileNo,
+    //   password: this.password
+    // };
+
+    // this.rest.login(param).then((result: any) => {
+    //   console.log(result);
+    //   if (result.status !== '500') {
+    //     // console.log(result.data.result[0]);
+    //     this.storage.set('userId', result).then(userId => {
+    //       this.events.publish('user:login');
+    //     });
+    //     this.router.navigate(['/home']);
+    //   } else {
+    //     alert(result.response_description);
+    //   }
+    // });
     // this.goToHome();
   }
   register() {
