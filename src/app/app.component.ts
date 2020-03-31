@@ -24,7 +24,7 @@ export class AppComponent {
         },
         {
             title: 'ลงทะเบียนผู้ใช้งาน ใหม่!!',
-            url: '/member',
+            url: '/register',
             icon: 'person-add'
         },
         {
@@ -56,9 +56,9 @@ export class AppComponent {
             icon: 'map'
         },
         {
-            title: 'วิธีการใช้งาน',
-            url: '/howto',
-            icon: 'book'
+            title: 'แก้ไขข้อมูลส่วนตัว',
+            url: '/member',
+            icon: 'contact'
         },
         {
             title: 'แสกนคิวอาร์โค้ด',
