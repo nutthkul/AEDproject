@@ -1,5 +1,6 @@
 // import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import {NavController} from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { RestService } from '../services/rest.service';
@@ -18,7 +19,8 @@ export class LoginPage {
     private storage: Storage,
     private router: Router,
     public rest: RestService,
-    public events: Events
+    public events: Events,
+    public navCtrl: NavController,
   ) {
   }
 
@@ -30,30 +32,30 @@ export class LoginPage {
     await this.storage.get(key).then((data) => data);
     // console.log('role is', data);
   }
-
   login() {
+    // this.router.navigate(['/home']);
+    const param = {
+      mobileNo: this.mobileNo,
+      password: this.password
+    };
 
-    this.router.navigate(['/home']);
-    // const param = {
-    //   mobileNo: this.mobileNo,
-    //   password: this.password
-    // };
-
-    // this.rest.login(param).then((result: any) => {
-    //   console.log(result);
-    //   if (result.status !== '500') {
-    //     // console.log(result.data.result[0]);
-    //     this.storage.set('userId', result).then(userId => {
-    //       this.events.publish('user:login');
-    //     });
-    //     this.router.navigate(['/home']);
-    //   } else {
-    //     alert(result.response_description);
-    //   }
-    // });
-    // this.goToHome();
+    this.rest.login(param).then((result: any) => {
+      console.log(result);
+      if (result.userType === 'P') {
+        // console.log(result.data.result[0]);
+        this.storage.set('userId', result).then(userId => {
+          this.events.publish('user:login');
+        });
+        this.router.navigate(['/home']);
+      } else {
+        console.log('cannot Login');
+      }
+    });
+  }
+  goToHome() {
+    this.navCtrl.navigateRoot('/home').then();
   }
   register() {
-    this.router.navigate(['/member']);
+    this.router.navigate(['/register']);
   }
 }

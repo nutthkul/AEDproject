@@ -49,12 +49,13 @@ export class MyAedPage implements OnInit {
   }
   async getAllMatchine() {
     this.http.get(this.api_base_url + '/getAllMachine', {});
-    await this.http.get('http://111.223.48.208:8080/device/getDeviceAll', {headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
+    await this.http.get('https://aed.defence-innovation.com:8443/device/getDeviceAll', {headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
         .subscribe((response) => {
           const responseObj = JSON.stringify(response);
           const datas = JSON.parse(responseObj);
           this.datas = datas;
           console.log(datas);
+
         });
   }
   // getUserAll() {

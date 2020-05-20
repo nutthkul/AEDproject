@@ -9,8 +9,8 @@ export interface Language {
   providedIn: 'root'
 })
 export class RestService {
-  apiUrl = 'http://111.223.48.208:8080';
-  currentLanguage: Language;
+  apiUrl = 'https://aed.defence-innovation.com:8443';
+      currentLanguage: Language;
   constructor(public http: HttpClient) { }
 
   login(param: any) {
@@ -26,6 +26,22 @@ export class RestService {
         }, (err) => {
           reject(err);
         });
+    });
+
+  }
+  register(param: any) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.post(this.apiUrl + '/user/registerUser', param, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
+          .subscribe(res => {
+            console.log(res);
+            // this.setUserLogin(res);
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
     });
 
   }
@@ -46,22 +62,39 @@ export class RestService {
     });
 
   }
-  getUserAll(param: any) {
-    return new Promise((resolve, reject) => {
-      const header = new HttpHeaders();
-      header.append('Content-type', 'json/data; charset=utf-8');
+  // getUserAll(param: any) {
+  //   return new Promise((resolve, reject) => {
+  //     const header = new HttpHeaders();
+  //     header.append('Content-type', 'json/data; charset=utf-8');
+  //
+  //     this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
+  //         .subscribe(res => {
+  //
+  //           // this.setUserLogin(res);
+  //           resolve(res);
+  //         }, (err) => {
+  //           reject(err);
+  //         });
+  //   });
+  //
+  // }
 
-      this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
-          .subscribe(res => {
-
-            // this.setUserLogin(res);
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
-    });
-
-  }
+  // getDeviceAll(param: any) {
+  //   return new Promise((resolve, reject) => {
+  //     const header = new HttpHeaders();
+  //     header.append('Content-type', 'json/data; charset=utf-8');
+  //
+  //     this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
+  //         .subscribe(res => {
+  //
+  //           // this.setUserLogin(res);
+  //           resolve(res);
+  //         }, (err) => {
+  //           reject(err);
+  //         });
+  //   });
+  //
+  // }
 
 
 }
