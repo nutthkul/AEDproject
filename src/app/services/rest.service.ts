@@ -37,6 +37,11 @@ export class RestService {
       this.http.post(this.apiUrl + '/user/registerUser', param, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
           .subscribe(res => {
             console.log(res);
+            // if (res.status === '500') {
+            //   console.log('error 500');
+            // } else {
+            //   console.log('success');
+            // }
             // this.setUserLogin(res);
             resolve(res);
           }, (err) => {

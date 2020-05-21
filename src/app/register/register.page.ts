@@ -75,14 +75,16 @@ register() {
     userStatus: this.userStatus
   };
   this.rest.register(param).then((result: any) => {
-    console.log(param);
-    // if (result.userType === 'P') {
-    //   // console.log(result.data.result[0]);
+    this.navCtrl.navigateRoot('/login').then();
+    // console.log(param);
+    // if (result.status !== '500') {
+    //   // console.log(result.data.result[0])
     //   this.storage.set('userId', result).then(userId => {
     //     this.events.publish('user:login');
     //   });
     //   // this.router.navigate(['/home']);
     // } else {
+    //   console.log('register error')
     //   alert(result.response_description);
     // }
   });
@@ -91,9 +93,6 @@ register() {
 }
   goToHome() {
     this.navCtrl.navigateRoot('/home').then();
-  }
-  goToStep2() {
-    this.navCtrl.navigateRoot('/member2').then();
   }
 
   ngOnInit() {
