@@ -67,22 +67,22 @@ export class RestService {
     });
 
   }
-  // getUserAll(param: any) {
-  //   return new Promise((resolve, reject) => {
-  //     const header = new HttpHeaders();
-  //     header.append('Content-type', 'json/data; charset=utf-8');
-  //
-  //     this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
-  //         .subscribe(res => {
-  //
-  //           // this.setUserLogin(res);
-  //           resolve(res);
-  //         }, (err) => {
-  //           reject(err);
-  //         });
-  //   });
-  //
-  // }
+  getUserById(param: any) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: header })
+          .subscribe(res => {
+        console.log(param);
+            // this.setUserLogin(res);
+        resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+
+  }
 
   // getDeviceAll(param: any) {
   //   return new Promise((resolve, reject) => {

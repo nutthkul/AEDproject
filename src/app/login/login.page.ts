@@ -41,7 +41,7 @@ export class LoginPage {
 
     this.rest.login(param).then((result: any) => {
       console.log(result);
-      if (result.userType === 'P') {
+      if (result.status !== '500') {
         // console.log(result.data.result[0]);
         this.storage.set('userId', result).then(userId => {
           this.events.publish('user:login');

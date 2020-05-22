@@ -47,8 +47,8 @@ export class MemberPage implements OnInit {
       public navCtrl: NavController,
       public rest: RestService, public events: Events,
       private router: Router, ) {
-    this.storage.get('api_base_url').then((data) => {
-      this.api_base_url = data;
+    this.storage.get('userId').then((data) => {
+      this.userId = data;
       this.getUserById();
     });
   }
@@ -58,7 +58,7 @@ export class MemberPage implements OnInit {
   goToStep2() {
     this.navCtrl.navigateRoot('/member2').then();
   }
-  editProfile() {
+  getUserById() {
     const param = {
       userType: this.userType,
       userPic: this.userPic,
@@ -86,31 +86,22 @@ export class MemberPage implements OnInit {
       registDate: this.registDate,
       userStatus: this.userStatus
     };
-    this.rest.register(param).then((result: any) => {
-      console.log(param);
-      // if (result.userType === 'P') {
-      //   // console.log(result.data.result[0]);
-      //   this.storage.set('userId', result).then(userId => {
-      //     this.events.publish('user:login');
-      //   });
-      //   // this.router.navigate(['/home']);
-      // } else {
-      //   alert(result.response_description);
-      // }
+    this.rest.getUserById(this.userId).then((result: any) => {
+      console.log(result);
     });
-    // this.goToHome();
-
   }
   ngOnInit() {
   }
-  async getUserById() {
-    // this.http.get(this.api_base_url + '/user/getUser/', {});
-    await this.http.get('http://111.223.48.208:8080/user/getUser/1', {headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
-        .subscribe((response) => {
-          const responseObj = JSON.stringify(response);
-          const datas = JSON.parse(responseObj);
-          this.datas = datas;
-          console.log(datas);
-        });
-  }
+  // async getUserById() {
+  //   // this.http.get(this.api_base_url + '/user/getUser/', {});
+  //   // console.log(this.storage.get('userId'));
+  //   // tslint:disable-next-line:max-line-length
+  //   await this.http.get('https://aed.defence-innovation.com:8443/user/getUser/' + this.storage.get('userId'))
+  //       .subscribe((response) => {
+  //         const responseObj = JSON.stringify(response);
+  //         const datas = JSON.parse(responseObj);
+  //         this.datas = datas;
+  //         console.log(datas);
+  //       });
+  // }
 }
