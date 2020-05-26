@@ -109,6 +109,8 @@ export class AppComponent {
     }
 
     initializeApp() {
+        // this.storage.remove('user');
+        // this.storage.remove('userId');
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();

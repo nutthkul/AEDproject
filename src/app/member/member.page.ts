@@ -12,32 +12,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./member.page.scss'],
 })
 export class MemberPage implements OnInit {
-  userType: string;
-  userPic: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  birthday: string;
-  idNum: number;
-  mobileNo: number;
-  bloodGroup: string;
-  weight: number;
-  height: number;
-  address: any;
-  subDistrict: any;
-  district: any;
-  province: any;
-  zipCode: number;
-  drugAllergy: any;
-  congenitalDisease: any;
-  hospital: any;
-  contactName: string;
-  contactPhone: number;
-  contactRelation: string;
-  registDate: any;
-  userStatus: string;
-
   api_base_url: string;
   userId: number;
   datas: any;

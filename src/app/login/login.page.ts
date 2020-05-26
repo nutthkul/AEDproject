@@ -45,7 +45,6 @@ export class LoginPage {
         // console.log(result.data.result[0]);
         this.storage.set('userId', result).then(userId => {
           this.events.publish('user:login');
-          // console.log(this.storage.get('userId'));
         });
         this.router.navigate(['/home']);
       } else {
