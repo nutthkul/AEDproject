@@ -36,7 +36,6 @@ export class RegisterPage implements OnInit {
   contactPhone: number;
   contactRelation: string;
   registDate: any;
-  userStatus: string;
 
   constructor(
       public navCtrl: NavController,
@@ -71,8 +70,7 @@ register() {
     contactName: this.contactName,
     contactPhone: this.contactPhone,
     contactRelation: this.contactRelation,
-    registDate: this.registDate,
-    userStatus: this.userStatus
+    registDate: this.registDate
   };
   this.rest.register(param).then((result: any) => {
     console.log(param);
