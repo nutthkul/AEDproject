@@ -14,6 +14,30 @@ import {Router} from '@angular/router';
 export class MemberPage implements OnInit {
   api_base_url: string;
   userId: number;
+  userType: string;
+  userPic: string;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  birthday: number;
+  idNum: number;
+  // mobileNo: number;
+  bloodGroup: string;
+  weight: number;
+  height: number;
+  address: any;
+  subDistrict: any;
+  district: any;
+  province: any;
+  zipCode: number;
+  drugAllergy: any;
+  congenitalDisease: any;
+  hospital: any;
+  contactName: string;
+  contactPhone: number;
+  contactRelation: string;
+  registDate: any;
+  userStatus: string;
   datas: any;
   constructor(
       private storage: Storage,
@@ -34,34 +58,37 @@ export class MemberPage implements OnInit {
   }
   getUserById() {
     const param = {
-      // userType: this.userType,
-      // userPic: this.userPic,
+      userType: this.userType,
+      userPic: this.userPic,
       // password: this.password,
-      // firstName: this. firstName,
-      // lastName: this.lastName,
-      // gender: this.gender,
-      // birthday: this.birthday,
-      // idNum: this.idNum,
+      firstName: this. firstName,
+      lastName: this.lastName,
+      gender: this.gender,
+      birthday: this.birthday,
+      idNum: this.idNum,
       // mobileNo: this.mobileNo,
-      // bloodGroup: this.bloodGroup,
-      // weight: this.weight,
-      // height:  this.height,
-      // address: this.address,
-      // subDistrict: this.subDistrict,
-      // district: this.district,
-      // province: this.province,
-      // zipCode: this.zipCode,
-      // drugAllergy: this.drugAllergy,
-      // congenitalDisease: this.congenitalDisease,
-      // hospital: this.hospital,
-      // contactName: this.contactName,
-      // contactPhone: this.contactPhone,
-      // contactRelation: this.contactRelation,
-      // registDate: this.registDate,
-      // userStatus: this.userStatus
+      bloodGroup: this.bloodGroup,
+      weight: this.weight,
+      height:  this.height,
+      address: this.address,
+      subDistrict: this.subDistrict,
+      district: this.district,
+      province: this.province,
+      zipCode: this.zipCode,
+      drugAllergy: this.drugAllergy,
+      congenitalDisease: this.congenitalDisease,
+      hospital: this.hospital,
+      contactName: this.contactName,
+      contactPhone: this.contactPhone,
+      contactRelation: this.contactRelation,
+      registDate: this.registDate,
+      userStatus: this.userStatus
     };
     this.rest.getUserById(this.userId).then((result: any) => {
-      console.log(result);
+      // console.log(result);
+      const responseObj = JSON.stringify(result);
+      const datas = JSON.parse(responseObj);
+      this.datas = datas;
     });
   }
   ngOnInit() {

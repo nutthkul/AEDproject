@@ -69,7 +69,7 @@ export class RestService {
 
       this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: header })
           .subscribe(res => {
-        console.log(param);
+        // console.log(param);
             // this.setUserLogin(res);
         resolve(res);
           }, (err) => {

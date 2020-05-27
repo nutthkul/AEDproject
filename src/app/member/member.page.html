@@ -12,64 +12,129 @@
 
 
 <ion-content class="mycss1">
-  <!--    <ion-stepper #stepper (selectIndexChange)="selectChange($event)">-->
-  <!--        <ion-step label="Step1"-->
-  <!--                  description="Step1 description">-->
-  <!--            <h2>Step1 Content</h2>-->
-  <!--            <p>Step1 Content</p>-->
-  <!--            <button ion-button small ionicStepperNext>Next</button>-->
-  <!--        </ion-step>-->
-  <!--        <ion-step label="Step2 - Step2 - Step2"-->
-  <!--                  description="Step1 description">-->
-  <!--            <h2>Step2 Content</h2>-->
-  <!--            <p>Step2 Content</p>-->
-  <!--            <button ion-button color="light" small ionicStepperPrevious>Previous</button>-->
-  <!--        </ion-step>-->
-  <!--    </ion-stepper>-->
-  <ion-grid>
-    <ion-card class="cardcss">
-      <ion-col class="center">
-        <ion-avatar style="width: 100px; height: 100px;">
-          <img src="../../assets/icon/images.png"/>
-        </ion-avatar>
-      </ion-col>
-      <ion-item>
-<!--        <ion-label>{{datas.userId}}</ion-label>-->
-        <ion-label position="floating" class="inputcss">ชื่อ-นามสกุล*</ion-label>
-        <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="name"></ion-input>
-        </ion-item-divider>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating" class="inputcss">อีเมลล์*</ion-label>
-        <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="email"></ion-input>
-        </ion-item-divider>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating" class="inputcss">รหัสผ่าน*</ion-label>
-        <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="password"></ion-input>
-        </ion-item-divider>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating" class="inputcss">ยืนยันรหัสผ่าน*</ion-label>
-        <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="password"></ion-input>
-        </ion-item-divider>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
-        <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="telophonenumber"></ion-input>
-        </ion-item-divider>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating" class="inputcss">เบอร์ติดต่อฉุกเฉิน*</ion-label>
-        <ion-item-divider>
-          <ion-input placeholder="โปรดระบุ" type="telophonenumber"></ion-input>
-        </ion-item-divider>
-      </ion-item>
+    <!--    <ion-stepper #stepper (selectIndexChange)="selectChange($event)">-->
+    <!--        <ion-step label="Step1"-->
+    <!--                  description="Step1 description">-->
+    <!--            <h2>Step1 Content</h2>-->
+    <!--            <p>Step1 Content</p>-->
+    <!--            <button ion-button small ionicStepperNext>Next</button>-->
+    <!--        </ion-step>-->
+    <!--        <ion-step label="Step2 - Step2 - Step2"-->
+    <!--                  description="Step1 description">-->
+    <!--            <h2>Step2 Content</h2>-->
+    <!--            <p>Step2 Content</p>-->
+    <!--            <button ion-button color="light" small ionicStepperPrevious>Previous</button>-->
+    <!--        </ion-step>-->
+    <!--    </ion-stepper>-->
+    <ion-grid>
+
+        <ion-card *ngIf="datas !== undefined" class="cardcss">
+            <ion-col class="center">
+                <ion-avatar style="width: 100px; height: 100px;">
+                    <img src="../../assets/icon/images.png"/>
+                </ion-avatar>
+            </ion-col>
+            <ion-item>
+                <ion-label position="stacked" class="inputcss">ชื่อ*</ion-label>
+                    <ion-input [(ngModel)]="datas.firstName" type="name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked" class="inputcss">นามสกุล*</ion-label>
+                    <ion-input [(ngModel)]="datas.lastName" type="name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">วันเดือนปีเกิด*</ion-label>
+                <ion-datetime [(ngModel)]="datas.birthday"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">เลขบัตรประจำตัวประชาชน*</ion-label>
+                    <ion-input [(ngModel)]="datas.idNum"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">เพศ*</ion-label>
+                <ion-select [(ngModel)]="datas.gender">
+                    <ion-select-option value="M">Male</ion-select-option>
+                    <ion-select-option value="W">Female</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">กรุ๊ปเลือด</ion-label>
+                <ion-select [(ngModel)]="datas.bloodGroup">
+                    <ion-select-option value="AB">AB</ion-select-option>
+                    <ion-select-option value="A">A</ion-select-option>
+                    <ion-select-option value="B">B</ion-select-option>
+                    <ion-select-option value="O">O</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">น้ำหนัก</ion-label>
+                    <ion-input [(ngModel)]="datas.weight"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">ส่วนสูง</ion-label>
+                    <ion-input [(ngModel)]="datas.height"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">ที่อยู่</ion-label>
+                    <ion-input [(ngModel)]="datas.address"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">ตำบล</ion-label>
+                    <ion-input [(ngModel)]="datas.subDistrict"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">อำเภอ</ion-label>
+                    <ion-input [(ngModel)]="datas.district" placeholder="โปรดระบุ"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">จังหวัด</ion-label>
+                    <ion-input [(ngModel)]="datas.province"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">รหัสไปรษณีย์</ion-label>
+                    <ion-input [(ngModel)]="datas.zipCode"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">ประวัติการแพ้ยา</ion-label>
+                    <ion-input [(ngModel)]="datas.drugAllergy"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">โรคประจำตัว</ion-label>
+                    <ion-input [(ngModel)]="datas.congenitalDisease"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">โรงพยาบาล</ion-label>
+                    <ion-input [(ngModel)]="datas.hospital" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">ชื่อผู้ที่สามารถติดต่อได้ในกรณีฉุกเฉิน</ion-label>
+                    <ion-input [(ngModel)]="datas.contactName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">เบอร์โทรผู่ที่สามารถติดต่อได้</ion-label>
+                    <ion-input [(ngModel)]="datas.contactPhone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">ความสัมพันธ์</ion-label>
+                    <ion-input [(ngModel)]="datas.contactRelation"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating" class="inputcss">User Type*</ion-label>
+                <ion-select [(ngModel)]="datas.userType">
+                    <ion-select-option value="V">Volunteer</ion-select-option>
+                    <ion-select-option value="P">Patient</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <!--      <ion-item>-->
+            <!--        <ion-label position="floating" class="inputcss">อีเมลล์*</ion-label>-->
+            <!--        <ion-item-divider>-->
+            <!--          <ion-input  placeholder="โปรดระบุ" type="email"></ion-input>-->
+            <!--        </ion-item-divider>-->
+            <!--      </ion-item>-->
+            <ion-item>
+                <ion-label position="floating" class="inputcss">รูปภาพ</ion-label>
+                    <ion-input [(ngModel)]="datas.userPic"></ion-input>
+            </ion-item>
       <ion-row>
         <ion-col>
           <ion-label position="floating">สำหรับผู้ป่วย</ion-label>
