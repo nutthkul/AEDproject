@@ -29,6 +29,24 @@ export class RestService {
     });
 
   }
+
+  getDeviceAll() {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.get(this.apiUrl + '/device/getDeviceAll' )
+        .subscribe(res => {
+
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
   register(param: any) {
     return new Promise((resolve, reject) => {
       const header = new HttpHeaders();
