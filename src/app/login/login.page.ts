@@ -40,11 +40,12 @@ export class LoginPage {
     };
 
     this.rest.login(param).then((result: any) => {
-      console.log(result);
+      // console.log(result);
       if (result.status !== '500') {
         // console.log(result.data.result[0]);
         this.storage.set('userId', result).then(userId => {
           this.events.publish('user:login');
+          console.log(result);
         });
         this.router.navigate(['/home']);
       } else {

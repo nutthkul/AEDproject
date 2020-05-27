@@ -4,6 +4,7 @@ import { Platform, Events } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -94,12 +95,13 @@ export class AppComponent {
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
         private storage: Storage,
+        private router: Router,
         public events: Events
     ) {
         this.initializeApp();
         events.subscribe('user:login', () => {
             // user and time are the same arguments passed in `events.publish(user, time)`
-            this.storage.get('user').then(user => {
+            this.storage.get('userId').then(user => {
                 if (user) {
                     this.appPages = this.appPagesAfterLogin;
                 }
@@ -115,7 +117,7 @@ export class AppComponent {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
 
-            this.storage.get('user').then(user => {
+            this.storage.get('userId').then(user => {
                 if (user) {
                     this.appPages = this.appPagesAfterLogin;
                 } else {
@@ -126,6 +128,11 @@ export class AppComponent {
     }
 
     logout() {
+        this.storage.remove('user');
+        this.storage.remove('userId');
+        this.storage.remove('mobileNo');
+        this.storage.remove('password');
         this.appPages = this.appPagesBeforeLogin;
+        this.router.navigate(['/login']);
     }
 }
