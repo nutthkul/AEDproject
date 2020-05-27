@@ -21,7 +21,7 @@ export class MemberPage implements OnInit {
   gender: string;
   birthday: number;
   idNum: number;
-  // mobileNo: number;
+  mobileNo: number;
   bloodGroup: string;
   weight: number;
   height: number;
@@ -53,9 +53,6 @@ export class MemberPage implements OnInit {
   goToHome() {
     this.navCtrl.navigateRoot('/home').then();
   }
-  goToStep2() {
-    this.navCtrl.navigateRoot('/member2').then();
-  }
   getUserById() {
     const param = {
       userType: this.userType,
@@ -66,7 +63,7 @@ export class MemberPage implements OnInit {
       gender: this.gender,
       birthday: this.birthday,
       idNum: this.idNum,
-      // mobileNo: this.mobileNo,
+      mobileNo: this.mobileNo,
       bloodGroup: this.bloodGroup,
       weight: this.weight,
       height:  this.height,
@@ -91,6 +88,39 @@ export class MemberPage implements OnInit {
       this.datas = datas;
     });
   }
+  updateUser() {
+      const param = {
+        userId: this.userId,
+        userType: this.userType,
+        userPic: this.userPic,
+        // password: this.password,
+        firstName: this. firstName,
+        lastName: this.lastName,
+        gender: this.gender,
+        birthday: this.birthday,
+        idNum: this.idNum,
+        mobileNo: this.mobileNo,
+        bloodGroup: this.bloodGroup,
+        weight: this.weight,
+        height:  this.height,
+        address: this.address,
+        subDistrict: this.subDistrict,
+        district: this.district,
+        province: this.province,
+        zipCode: this.zipCode,
+        drugAllergy: this.drugAllergy,
+        congenitalDisease: this.congenitalDisease,
+        hospital: this.hospital,
+        contactName: this.contactName,
+        contactPhone: this.contactPhone,
+        contactRelation: this.contactRelation,
+        registDate: this.registDate,
+        userStatus: this.userStatus
+      };
+      this.rest.updateUser(param).then((result: any) => {
+        this.navCtrl.navigateRoot('/member2').then();
+       });
+  }
   ngOnInit() {
   }
   // async getUserById() {
@@ -106,3 +136,5 @@ export class MemberPage implements OnInit {
   //       });
   // }
 }
+
+

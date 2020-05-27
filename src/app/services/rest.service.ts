@@ -79,6 +79,20 @@ export class RestService {
 
   }
 
+  updateUser(param: any) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+      this.http.put(this.apiUrl + '/user/updateUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+
+  }
+
   // getDeviceAll(param: any) {
   //   return new Promise((resolve, reject) => {
   //     const header = new HttpHeaders();

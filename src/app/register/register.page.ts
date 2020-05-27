@@ -84,7 +84,7 @@ register() {
     //   alert(result.response_description);
     // }
   });
-  // this.goToHome();
+  this.goToHome();
 
 }
   goToHome() {
