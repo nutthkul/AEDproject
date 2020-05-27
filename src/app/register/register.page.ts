@@ -84,11 +84,14 @@ register() {
     //   alert(result.response_description);
     // }
   });
-  this.goToHome();
+  this.goToLogin();
 
 }
   goToHome() {
     this.navCtrl.navigateRoot('/home').then();
+  }
+  goToLogin() {
+    this.navCtrl.navigateRoot('/login').then();
   }
   goToStep2() {
     this.navCtrl.navigateRoot('/member2').then();
