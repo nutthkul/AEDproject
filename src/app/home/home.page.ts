@@ -13,6 +13,7 @@ import {
     MyLocation
 } from '@ionic-native/google-maps';
 import { Storage } from '@ionic/storage';
+import { RestService } from '../services/rest.service';
 
 @Component({
     selector: 'app-home',
@@ -34,6 +35,7 @@ export class HomePage implements OnInit {
         public loadingCtrl: LoadingController,
         public toastCtrl: ToastController,
         private platform: Platform,
+        public rest: RestService,
         public storage: Storage) {
         if (this.role !== 2) {
             storage.get('first').then((data) => {
@@ -54,6 +56,26 @@ export class HomePage implements OnInit {
         await this.platform.ready();
         await this.loadMap();
         await this.start();
+
+        // this.getAllDevices();
+    }
+
+    getAllDevices() {
+        console.log('get device');
+        this.rest.getDeviceAll().then((result: any) => {
+            console.log(result);
+            result.forEach(device => {
+
+                // var myLatlng = new this.map.
+
+                const marker: Marker = this.map.addMarkerSync({
+                    title: device.deviceName,
+                    snippet: device.deviceMark,
+                    position: { lat: device.latitude, lng: device.longitude },
+                    animation: GoogleMapsAnimation.BOUNCE
+                });
+            });
+        });
     }
 
     loadMap() {
@@ -77,7 +99,7 @@ export class HomePage implements OnInit {
             message: 'Please wait...'
         });
         await this.loading.present();
-
+        const that = this;
         // Get the location of you
         this.map.getMyLocation().then((location: MyLocation) => {
             this.loading.dismiss();
@@ -96,6 +118,8 @@ export class HomePage implements OnInit {
                 position: location.latLng,
                 animation: GoogleMapsAnimation.BOUNCE
             });
+
+            that.getAllDevices();
 
             // show the infoWindow
             marker.showInfoWindow();
