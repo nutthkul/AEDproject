@@ -77,8 +77,10 @@ export class HomePage implements OnInit {
 
                 // ระยะทางที่หาได้
                 const distance = (distanceMet / 1000).toFixed(2);
+                // distance = distance * 1;
                 // var myLatlng = new this.map.
-                if (parseInt(distance, 2) <= 5) {
+                // tslint:disable-next-line:radix
+                if (parseInt(distance) <= 5) {
                     const marker: Marker = this.map.addMarkerSync({
                         title: device.deviceName,
                         snippet: device.deviceMark,
