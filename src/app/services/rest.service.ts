@@ -9,7 +9,7 @@ export interface Language {
   providedIn: 'root'
 })
 export class RestService {
-  apiUrl = 'https://111.223.48.208:9993';
+  apiUrl = 'https://www.aed.defence-innovation.com:9993';
       currentLanguage: Language;
   constructor(public http: HttpClient) { }
 
