@@ -58,16 +58,16 @@
     <ion-card-header>
       <ion-card-title>
         <button (click)="sos()" style="float: right;background-color: transparent;"><b>X</b></button>
-        โรงพยาบาลมหาราช
+        <!-- โรงพยาบาลมหาราช -->
       </ion-card-title>
-      <ion-card-subtitle>{{ this.AEDLocation? this.AEDLocation:'ซอยลึก' }}</ion-card-subtitle>
+      <ion-card-subtitle>{{ this.AEDLocation }}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
   <ion-card *ngIf="SOSHelp" style="background-color:white !important;margin-left: -5vw;margin-top:75vh;width: 100vw;height:16vh;position: fixed;">
     <ion-card-header>
       <ion-card-title>
         <button style="float: right;background-color: transparent;"><b>X</b></button>
-        โรงพยาบาลมหาราช
+        <!-- โรงพยาบาลมหาราช -->
       </ion-card-title>
     </ion-card-header>
     <ion-button (click)="help()">นำทาง</ion-button>

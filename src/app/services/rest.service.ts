@@ -9,7 +9,7 @@ export interface Language {
   providedIn: 'root'
 })
 export class RestService {
-  apiUrl = 'https://aed.defence-innovation.com:8443';
+  apiUrl = 'https://111.223.48.208:9993';
       currentLanguage: Language;
   constructor(public http: HttpClient) { }
 
@@ -107,6 +107,40 @@ export class RestService {
           }, (err) => {
             reject(err);
           });
+    });
+
+  }
+
+  createEvent(userId, latLng) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.post(this.apiUrl + '/event/createEvent/' + userId + '/' + latLng, {})
+        .subscribe(res => {
+
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+  addDevice(param) {
+    return new Promise((resolve, reject) => {
+      const header = new HttpHeaders();
+      header.append('Content-type', 'json/data; charset=utf-8');
+
+      this.http.post(this.apiUrl + '/device/registerDevice', param)
+        .subscribe(res => {
+
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
 
   }

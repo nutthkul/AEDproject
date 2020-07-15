@@ -14,6 +14,7 @@ import {
 } from '@ionic-native/google-maps';
 import { Storage } from '@ionic/storage';
 import { RestService } from '../services/rest.service';
+declare var google;
 
 @Component({
     selector: 'app-home',
@@ -30,6 +31,10 @@ export class HomePage implements OnInit {
     role = 1;
     first = true;
     step = 1;
+    currentPosition: any;
+
+    lat: any;
+    lng: any;
 
     constructor(
         public loadingCtrl: LoadingController,
@@ -65,15 +70,22 @@ export class HomePage implements OnInit {
         this.rest.getDeviceAll().then((result: any) => {
             console.log(result);
             result.forEach(device => {
+                const current = new google.maps.LatLng(this.lat, this.lng);
+                const target = new google.maps.LatLng(device.latitude, device.longitude);
+                const distanceMet = google.maps.geometry.spherical.computeDistanceBetween(current, target);
+                console.log((distanceMet / 1000).toFixed(2));
 
+                // ระยะทางที่หาได้
+                const distance = (distanceMet / 1000).toFixed(2);
                 // var myLatlng = new this.map.
-
-                const marker: Marker = this.map.addMarkerSync({
-                    title: device.deviceName,
-                    snippet: device.deviceMark,
-                    position: { lat: device.latitude, lng: device.longitude },
-                    animation: GoogleMapsAnimation.BOUNCE
-                });
+                if (parseInt(distance, 2) <= 5) {
+                    const marker: Marker = this.map.addMarkerSync({
+                        title: device.deviceName,
+                        snippet: device.deviceMark,
+                        position: { lat: device.latitude, lng: device.longitude },
+                        animation: GoogleMapsAnimation.BOUNCE
+                    });
+                }
             });
         });
     }
@@ -105,12 +117,16 @@ export class HomePage implements OnInit {
             this.loading.dismiss();
             console.log(JSON.stringify(location, null, 2));
 
+            this.lat = location.latLng.lat;
+            this.lng = location.latLng.lng;
+
             // Move the map camera to the location with animation
             this.map.animateCamera({
                 target: location.latLng,
                 zoom: 17,
                 tilt: 30
             });
+            this.currentPosition = location.latLng;
             // add a marker
             const marker: Marker = this.map.addMarkerSync({
                 title: 'AED จุดที่ 1',
@@ -142,6 +158,7 @@ export class HomePage implements OnInit {
         if (this.count === 3) {
             this.SOS = !this.SOS;
             this.count++;
+            this.createEvent();
         } else if (this.count === 4) {
             this.SOS = !this.SOS;
             this.count = 1;
@@ -151,10 +168,18 @@ export class HomePage implements OnInit {
         this.AEDLocation = 'แจ้งเตือนไปยังผู้ช่วยแล้ว!!';
     }
 
+    createEvent() {
+        console.log('get device');
+        this.rest.createEvent(32, this.currentPosition).then((result: any) => {
+            console.log(result);
+        });
+    }
+
     myLocation() {
         this.map.getMyLocation().then((location: MyLocation) => {
             this.loading.dismiss();
             console.log(JSON.stringify(location, null, 2));
+
 
             // Move the map camera to the location with animation
             this.map.animateCamera({

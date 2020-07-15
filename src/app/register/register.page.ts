@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController} from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { RestService } from '../services/rest.service';
 import { Events } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class RegisterPage implements OnInit {
   birthday: string;
   idNum: number;
   mobileNo: number;
+  userEmail: string;
   bloodGroup: string;
   weight: number;
   height: number;
@@ -38,55 +39,57 @@ export class RegisterPage implements OnInit {
   registDate: any;
 
   constructor(
-      public navCtrl: NavController,
-      private storage: Storage,
-      private router: Router,
-      public rest: RestService,
-      public events: Events,
-      ) {
+    public navCtrl: NavController,
+    private storage: Storage,
+    private router: Router,
+    public rest: RestService,
+    public events: Events,
+  ) {
   }
-register() {
-  const param = {
-    userType: this.userType,
-    userPic: this.userPic,
-    password: this.password,
-    firstName: this. firstName,
-    lastName: this.lastName,
-    gender: this.gender,
-    birthday: this.birthday,
-    idNum: this.idNum,
-    mobileNo: this.mobileNo,
-    bloodGroup: this.bloodGroup,
-    weight: this.weight,
-    height:  this.height,
-    address: this.address,
-    subDistrict: this.subDistrict,
-    district: this.district,
-    province: this.province,
-    zipCode: this.zipCode,
-    drugAllergy: this.drugAllergy,
-    congenitalDisease: this.congenitalDisease,
-    hospital: this.hospital,
-    contactName: this.contactName,
-    contactPhone: this.contactPhone,
-    contactRelation: this.contactRelation,
-    registDate: this.registDate
-  };
-  this.rest.register(param).then((result: any) => {
-    console.log(param);
-    // if (result.userType === 'P') {
-    //   // console.log(result.data.result[0]);
-    //   this.storage.set('userId', result).then(userId => {
-    //     this.events.publish('user:login');
-    //   });
-    //   // this.router.navigate(['/home']);
-    // } else {
-    //   alert(result.response_description);
-    // }
-  });
-  this.goToLogin();
+  register() {
+    const param = {
+      userType: this.userType,
+      userPic: this.userPic,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      gender: this.gender,
+      birthday: this.birthday,
+      idNum: this.idNum,
+      mobileNo: this.mobileNo,
+      userEmail: this.userEmail,
+      bloodGroup: this.bloodGroup,
+      weight: this.weight,
+      height: this.height,
+      address: this.address,
+      subDistrict: this.subDistrict,
+      district: this.district,
+      province: this.province,
+      zipCode: this.zipCode,
+      drugAllergy: this.drugAllergy,
+      congenitalDisease: this.congenitalDisease,
+      hospital: this.hospital,
+      contactName: this.contactName,
+      contactPhone: this.contactPhone,
+      contactRelation: this.contactRelation,
+      registDate: this.registDate,
+      userStatus: 'ACTIVE'
+    };
+    this.rest.register(param).then((result: any) => {
+      console.log(param);
+      // if (result.userType === 'P') {
+      //   // console.log(result.data.result[0]);
+      //   this.storage.set('userId', result).then(userId => {
+      //     this.events.publish('user:login');
+      //   });
+      //   // this.router.navigate(['/home']);
+      // } else {
+      //   alert(result.response_description);
+      // }
+    });
+    this.goToLogin();
 
-}
+  }
   goToHome() {
     this.navCtrl.navigateRoot('/home').then();
   }
