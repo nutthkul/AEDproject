@@ -38,6 +38,5 @@ library.add(fas, far, fab);
 })
 export class AppModule {
     constructor() {
-        // https://aednodejs.yuzudigital.com/login
     }
 }

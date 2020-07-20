@@ -35,21 +35,15 @@
       </ion-col>
       <ion-item>
         <ion-label position="floating" class="inputcss">ชื่อ*</ion-label>
-          <ion-item-divider>
             <ion-input [(ngModel)]="firstName" placeholder="โปรดระบุ" type="name"></ion-input>
-          </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">นามสกุล*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="lastName" placeholder="โปรดระบุ" type="name"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">Email*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="userEmail" placeholder="โปรดระบุ" type="name"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">วันเดือนปีเกิด*</ion-label>
@@ -57,9 +51,7 @@
       </ion-item>
       <ion-item>
       <ion-label position="floating" class="inputcss">เลขบัตรประจำตัวประชาชน*</ion-label>
-      <ion-item-divider>
         <ion-input [(ngModel)]="idNum" placeholder="โปรดระบุ"></ion-input>
-      </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">เพศ*</ion-label>
@@ -79,81 +71,55 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">น้ำหนัก</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="weight" placeholder="โปรดระบุ" type="number"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
       <ion-label position="floating" class="inputcss">ส่วนสูง</ion-label>
-      <ion-item-divider>
         <ion-input [(ngModel)]="height" placeholder="โปรดระบุ"></ion-input>
-      </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ที่อยู่</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="address" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ตำบล</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="subDistrict" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">อำเภอ</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="district" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">จังหวัด</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="province" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">รหัสไปรษณีย์</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="zipCode" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ประวัติการแพ้ยา</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="drugAllergy" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">โรคประจำตัว</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="congenitalDisease" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">โรงพยาบาล</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="hospital" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ชื่อผู้ที่สามารถติดต่อได้ในกรณีฉุกเฉิน</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="contactName" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">เบอร์โทรผู่ที่สามารถติดต่อได้</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="contactPhone" placeholder="โปรดระบุ" type="number"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ความสัมพันธ์</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="contactRelation" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ประเภทผู้ใช้งาน*</ion-label>
@@ -170,21 +136,15 @@
 <!--      </ion-item>-->
       <ion-item>
         <ion-label position="floating" class="inputcss">เบอร์โทรศัพท์*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="mobileNo" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">รหัสผ่าน*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="password" placeholder="โปรดระบุ" type="password"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">รูปภาพ</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="userPic" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-row>
         <ion-col>

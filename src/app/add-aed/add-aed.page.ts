@@ -22,6 +22,9 @@ export class AddAedPage implements OnInit {
   deviceUuid: string;
   latitude: number;
   longitude: number;
+  subDistrictCode: number;
+  districtCode: number;
+  provinceCode: number;
 
   // api_base_url: string;
   constructor(private storage: Storage, private http: HttpClient, public navCtrl: NavController, public rest: RestService) {
@@ -53,7 +56,10 @@ export class AddAedPage implements OnInit {
       deviceEui: this.deviceEui,
       deviceUuid: this.deviceUuid,
       latitude: this.latitude,
-      longitude: this.longitude
+      longitude: this.longitude,
+      subDistrictCode: this.subDistrictCode,
+      districtCode: this.districtCode,
+      provinceCode: this.provinceCode
     };
     this.rest.addDevice(param).then((result: any) => {
       console.log(param);

@@ -34,51 +34,58 @@
       </ion-col>
       <ion-item>
         <ion-label position="floating" class="inputcss">ชื่อเครื่อง*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="deviceName" placeholder="โปรดระบุ" type="name" required=""></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">รายละเอียดสถานที่*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="deviceLocationName" placeholder="โปรดระบุ" type="name" required=""></ion-input>
-        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">รหัสตำบล/รหัสเขต*</ion-label>
+          <ion-input [(ngModel)]="subDistrictCode" placeholder="โปรดระบุ" type="name" required=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">รหัสอำเภอ/รหัสแขวง*</ion-label>
+          <ion-input [(ngModel)]="districtCode" placeholder="โปรดระบุ" type="name" required=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">รหัสจังหวัด*</ion-label>
+          <ion-input [(ngModel)]="provinceCode" placeholder="โปรดระบุ" type="name" required=""></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">จุดสังเกตเพิ่มเติม*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="deviceDesc" placeholder="โปรดระบุ" type="email"></ion-input>
-        </ion-item-divider>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="inputcss">จุดที่ตั้งเครื่อง*</ion-label>
+          <ion-input [(ngModel)]="deviceMark" placeholder="โปรดระบุ" type="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">เบอร์ติดต่อ*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="deviceContact" placeholder="โปรดระบุ" type="number"></ion-input>
-        </ion-item-divider>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" class="inputcss">เลข Eui Addres*</ion-label>
+          <ion-input [(ngModel)]="deviceEui" placeholder="โปรดระบุ"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating" class="inputcss">รหัสเครื่อง*</ion-label>
-        <ion-item-divider>
-          <ion-input [(ngModel)]="deviceEui" placeholder="โปรดระบุ"></ion-input>
-        </ion-item-divider>
+        <ion-label position="floating" class="inputcss">รหัสประจำตัวของตู้AED*</ion-label>
+          <ion-input [(ngModel)]="deviceUuid" placeholder="โปรดระบุ"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่องละติจูด*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="latitude" placeholder="โปรดระบุ" type="number"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-item>
         <ion-label position="floating" class="inputcss">ระบุตำแหน่งเครื่องลองติจูด*</ion-label>
-        <ion-item-divider>
           <ion-input [(ngModel)]="longitude" placeholder="โปรดระบุ" type="number"></ion-input>
-        </ion-item-divider>
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-item>
-            <ion-img style="width: 300px; height: 150px;" src="../../assets/icon/map.jpg"></ion-img>
-          </ion-item>
+<!--          <ion-item>-->
+<!--            <ion-img style="width: 300px; height: 150px;" src="../../assets/icon/map.jpg"></ion-img>-->
+<!--          </ion-item>-->
         </ion-col>
       </ion-row>
       <!-- <ion-row>

@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 
+
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
@@ -33,21 +34,21 @@ export class AppComponent {
             url: '/howto',
             icon: 'book'
         },
-        {
-            title: 'แสกนคิวอาร์โค้ด',
-            url: '/qrcode',
-            icon: 'qr-scanner'
-        },
-        {
-            title: 'ตั้งค่า',
-            url: '/setting',
-            icon: 'cog'
-        },
-        {
-            title: 'ลงทะเบียนเครื่อง AED',
-            url: '/add-aed',
-            icon: 'ios-add-circle'
-        },
+        // {
+        //     title: 'แสกนคิวอาร์โค้ด',
+        //     url: '/qrcode',
+        //     icon: 'qr-scanner'
+        // },
+        // {
+        //     title: 'ตั้งค่า',
+        //     url: '/setting',
+        //     icon: 'cog'
+        // },
+        // {
+        //     title: 'ลงทะเบียนเครื่อง AED',
+        //     url: '/add-aed',
+        //     icon: 'ios-add-circle'
+        // },
     ];
 
     public appPagesAfterLogin = [
@@ -61,21 +62,21 @@ export class AppComponent {
             url: '/member',
             icon: 'contact'
         },
-        {
-            title: 'แสกนคิวอาร์โค้ด',
-            url: '/qrcode',
-            icon: 'qr-scanner'
-        },
-        {
-            title: 'ตั้งค่า',
-            url: '/setting',
-            icon: 'cog'
-        },
-        {
-            title: 'เครื่องAEDของฉัน',
-            url: '/my-aed',
-            icon: 'list'
-        },
+        // {
+        //     title: 'แสกนคิวอาร์โค้ด',
+        //     url: '/qrcode',
+        //     icon: 'qr-scanner'
+        // },
+        // {
+        //     title: 'ตั้งค่า',
+        //     url: '/setting',
+        //     icon: 'cog'
+        // },
+        // {
+        //     title: 'เครื่องAEDของฉัน',
+        //     url: '/my-aed',
+        //     icon: 'list'
+        // },
         {
             title: 'ลงทะเบียนเครื่อง AED',
             url: '/add-aed',
@@ -132,6 +133,7 @@ export class AppComponent {
         this.storage.remove('userId');
         this.storage.remove('mobileNo');
         this.storage.remove('password');
+        // this.storage.remove('userType');
         this.appPages = this.appPagesBeforeLogin;
         this.router.navigate(['/login']);
     }

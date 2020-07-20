@@ -22,6 +22,7 @@ export class MemberPage implements OnInit {
   birthday: number;
   idNum: number;
   mobileNo: number;
+  userEmail: string;
   bloodGroup: string;
   weight: number;
   height: number;
@@ -64,6 +65,7 @@ export class MemberPage implements OnInit {
       birthday: this.birthday,
       idNum: this.idNum,
       mobileNo: this.mobileNo,
+      userEmail: this.userEmail,
       bloodGroup: this.bloodGroup,
       weight: this.weight,
       height:  this.height,
@@ -100,6 +102,7 @@ export class MemberPage implements OnInit {
         birthday: this.birthday,
         idNum: this.idNum,
         mobileNo: this.mobileNo,
+        userEmail: this.userEmail,
         bloodGroup: this.bloodGroup,
         weight: this.weight,
         height:  this.height,
@@ -118,6 +121,7 @@ export class MemberPage implements OnInit {
         userStatus: this.userStatus
       };
       this.rest.updateUser(param).then((result: any) => {
+        console.log(param);
         this.navCtrl.navigateRoot('/member2').then();
        });
   }
