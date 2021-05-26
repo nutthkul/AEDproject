@@ -91,37 +91,38 @@ export class MemberPage implements OnInit {
     });
   }
   updateUser() {
-      const param = {
-        userId: this.userId,
-        userType: this.userType,
-        userPic: this.userPic,
-        // password: this.password,
-        firstName: this. firstName,
-        lastName: this.lastName,
-        gender: this.gender,
-        birthday: this.birthday,
-        idNum: this.idNum,
-        mobileNo: this.mobileNo,
-        userEmail: this.userEmail,
-        bloodGroup: this.bloodGroup,
-        weight: this.weight,
-        height:  this.height,
-        address: this.address,
-        subDistrict: this.subDistrict,
-        district: this.district,
-        province: this.province,
-        zipCode: this.zipCode,
-        drugAllergy: this.drugAllergy,
-        congenitalDisease: this.congenitalDisease,
-        hospital: this.hospital,
-        contactName: this.contactName,
-        contactPhone: this.contactPhone,
-        contactRelation: this.contactRelation,
-        registDate: this.registDate,
-        userStatus: this.userStatus
-      };
-      this.rest.updateUser(param).then((result: any) => {
-        console.log(param);
+      // const param = {
+      //   userId: this.userId,
+      //   userType: this.userType,
+      //   userPic: this.userPic,
+      //   // password: this.password,
+      //   firstName: this. firstName,
+      //   lastName: this.lastName,
+      //   gender: this.gender,
+      //   birthday: this.birthday,
+      //   idNum: this.idNum,
+      //   mobileNo: this.mobileNo,
+      //   userEmail: this.userEmail,
+      //   bloodGroup: this.bloodGroup,
+      //   weight: this.weight,
+      //   height:  this.height,
+      //   address: this.address,
+      //   subDistrict: this.subDistrict,
+      //   district: this.district,
+      //   province: this.province,
+      //   zipCode: this.zipCode,
+      //   drugAllergy: this.drugAllergy,
+      //   congenitalDisease: this.congenitalDisease,
+      //   hospital: this.hospital,
+      //   contactName: this.contactName,
+      //   contactPhone: this.contactPhone,
+      //   contactRelation: this.contactRelation,
+      //   registDate: this.registDate,
+      //   userStatus: this.userStatus
+      // };
+      console.log(this.datas);
+      this.rest.updateUser(this.datas).then((result: any) => {
+        console.log(result);
         this.navCtrl.navigateRoot('/member2').then();
        });
   }

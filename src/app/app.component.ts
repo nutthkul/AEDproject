@@ -89,6 +89,82 @@ export class AppComponent {
         }
     ];
 
+    public appPagesForV = [
+        {
+            title: 'แผนที่',
+            url: '/home',
+            icon: 'map'
+        },
+        {
+            title: 'แก้ไขข้อมูลส่วนตัว',
+            url: '/member',
+            icon: 'contact'
+        },
+        // {
+        //     title: 'แสกนคิวอาร์โค้ด',
+        //     url: '/qrcode',
+        //     icon: 'qr-scanner'
+        // },
+        // {
+        //     title: 'ตั้งค่า',
+        //     url: '/setting',
+        //     icon: 'cog'
+        // },
+        // {
+        //     title: 'เครื่องAEDของฉัน',
+        //     url: '/my-aed',
+        //     icon: 'list'
+        // },
+        {
+            title: 'ลงทะเบียนเครื่อง AED',
+            url: '/add-aed',
+            icon: 'ios-add-circle'
+        },
+        {
+            title: 'ออกจากระบบ',
+            url: 'logout',
+            icon: 'log-out'
+        }
+    ];
+
+    public appPagesForP = [
+        {
+            title: 'แผนที่',
+            url: '/home',
+            icon: 'map'
+        },
+        {
+            title: 'แก้ไขข้อมูลส่วนตัว',
+            url: '/member',
+            icon: 'contact'
+        },
+        // {
+        //     title: 'แสกนคิวอาร์โค้ด',
+        //     url: '/qrcode',
+        //     icon: 'qr-scanner'
+        // },
+        // {
+        //     title: 'ตั้งค่า',
+        //     url: '/setting',
+        //     icon: 'cog'
+        // },
+        // {
+        //     title: 'เครื่องAEDของฉัน',
+        //     url: '/my-aed',
+        //     icon: 'list'
+        // },
+        // {
+        //     title: 'ลงทะเบียนเครื่อง AED',
+        //     url: '/add-aed',
+        //     icon: 'ios-add-circle'
+        // },
+        {
+            title: 'ออกจากระบบ',
+            url: 'logout',
+            icon: 'log-out'
+        }
+    ];
+
     public appPages = [];
 
     constructor(
@@ -101,10 +177,14 @@ export class AppComponent {
     ) {
         this.initializeApp();
         events.subscribe('user:login', () => {
+            alert('login');
             // user and time are the same arguments passed in `events.publish(user, time)`
             this.storage.get('userId').then(user => {
-                if (user) {
-                    this.appPages = this.appPagesAfterLogin;
+                console.log(user);
+                if (user.userType === 'V') {
+                    this.appPages = this.appPagesForV;
+                } else if (user.userType === 'P') {
+                    this.appPages = this.appPagesForP;
                 }
             });
         });
@@ -117,10 +197,12 @@ export class AppComponent {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-
+            
             this.storage.get('userId').then(user => {
-                if (user) {
-                    this.appPages = this.appPagesAfterLogin;
+                if (user.userType === 'V') {
+                    this.appPages = this.appPagesForV;
+                } else if (user.userType === 'P') {
+                    this.appPages = this.appPagesForP;
                 } else {
                     this.appPages = this.appPagesBeforeLogin;
                 }
