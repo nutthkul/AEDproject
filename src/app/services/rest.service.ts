@@ -10,7 +10,7 @@ export interface Language {
 })
 export class RestService {
   apiUrl = 'https://aed.defence-innovation.com:9993';
-      currentLanguage: Language;
+  currentLanguage: Language;
   constructor(public http: HttpClient) { }
 
   login(param: any) {
@@ -18,7 +18,7 @@ export class RestService {
       const header = new HttpHeaders();
       header.append('Content-type', 'json/data; charset=utf-8');
 
-      this.http.get(this.apiUrl + '/user/login' + '/' + param.mobileNo + '/' + param.password )
+      this.http.get(this.apiUrl + '/user/login' + '/' + param.mobileNo + '/' + param.password)
         .subscribe(res => {
 
           // this.setUserLogin(res);
@@ -35,7 +35,7 @@ export class RestService {
       const header = new HttpHeaders();
       header.append('Content-type', 'json/data; charset=utf-8');
 
-      this.http.get(this.apiUrl + '/device/getDeviceAll' )
+      this.http.get(this.apiUrl + '/device/getDeviceAll')
         .subscribe(res => {
 
           // this.setUserLogin(res);
@@ -52,14 +52,14 @@ export class RestService {
       const header = new HttpHeaders();
       header.append('Content-type', 'json/data; charset=utf-8');
 
-      this.http.post(this.apiUrl + '/user/registerUser', param, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
-          .subscribe(res => {
-            console.log(res);
-            // this.setUserLogin(res);
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
+      this.http.post(this.apiUrl + '/user/registerUser', param, { headers: { Authorization: 'Bearer Zm9vOmJhcg==' } })
+        .subscribe(res => {
+          console.log(res);
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
 
   }
@@ -86,27 +86,28 @@ export class RestService {
       header.append('Content-type', 'json/data; charset=utf-8');
 
       this.http.get(this.apiUrl + '/user/getUser/' + param.userId, { headers: header })
-          .subscribe(res => {
-        // console.log(param);
-            // this.setUserLogin(res);
-        resolve(res);
-          }, (err) => {
-            reject(err);
-          });
+        .subscribe(res => {
+          // console.log(param);
+          // this.setUserLogin(res);
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
 
   }
 
   updateUser(param: any) {
+    console.log(param);
     return new Promise((resolve, reject) => {
       const header = new HttpHeaders();
       header.append('Content-type', 'json/data; charset=utf-8');
-      this.http.put(this.apiUrl + '/user/updateUser/' + param.userId, { headers: {Authorization: 'Bearer Zm9vOmJhcg=='}})
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
+      this.http.put(this.apiUrl + '/user/updateUser/' + param.userId, param, { headers: { Authorization: 'Bearer Zm9vOmJhcg==' } })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
     });
 
   }
